@@ -62,3 +62,28 @@ pub fn insert_1b1_with_updates(
     }
     updates
 }
+
+/// Read a comma-separated list from env var `key` (e.g. `CRDT_SIZES=6000,60000`),
+/// falling back to `default` when unset. Used by `scripts/bench.py` to drive sweeps
+/// without recompiling.
+pub fn env_list<T: std::str::FromStr + Clone>(key: &str, default: &[T]) -> Vec<T> {
+    match std::env::var(key) {
+        Ok(v) if !v.trim().is_empty() => v
+            .split(',')
+            .map(|s| {
+                s.trim()
+                    .parse()
+                    .unwrap_or_else(|_| panic!("invalid value {s:?} in {key}"))
+            })
+            .collect(),
+        _ => default.to_vec(),
+    }
+}
+
+/// Read a single value from env var `key`, falling back to `default`.
+pub fn env_or<T: std::str::FromStr>(key: &str, default: T) -> T {
+    std::env::var(key)
+        .ok()
+        .and_then(|v| v.trim().parse().ok())
+        .unwrap_or(default)
+}

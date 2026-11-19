@@ -13,6 +13,39 @@ for what is available.
 cargo bench --bench seq_add
 ```
 
+## Graphs in one command
+
+`scripts/bench.py` runs a workload and plots the results with matplotlib.
+One-time setup:
+
+```sh
+python3 -m venv .venv && .venv/bin/pip install -r scripts/requirements.txt
+```
+
+Then:
+
+```sh
+# run + plot (sizes are swept without recompiling, via CRDT_* env vars)
+.venv/bin/python scripts/bench.py run seq_add --sizes 6000,60000,600000
+.venv/bin/python scripts/bench.py run load mem --file-sizes 6k,60k,600k
+.venv/bin/python scripts/bench.py run all
+
+# re-plot an existing run, or compare runs (e.g. Automerge 2 vs 3)
+.venv/bin/python scripts/bench.py plot results/latest
+.venv/bin/python scripts/bench.py run load --label am2   # with automerge = "0.6.0"
+.venv/bin/python scripts/bench.py run load --label am3   # with automerge = "0.12.0"
+.venv/bin/python scripts/bench.py plot results/*-am2 results/*-am3
+```
+
+Each run goes to `results/<timestamp>[-<label>]/` with the raw Criterion output,
+`meta.json` (commit, crate versions, settings), and `plots/` (one PNG per
+benchmark group, `index.html`, `summary.csv`, `memory.csv`). Other options:
+`--sample-size`, `--filter`, `--quick`, `--formats png,svg,pdf`; see `--help`.
+
+Benchmarks that use `BenchmarkId::new(lib, param)` with a numeric parameter
+(`6000`, `60k`) are drawn as line charts over that parameter; everything else
+is a bar chart per library.
+
 Workloads:
 
 - seq_add: This is simulating insertion of large chunk of texts, either one by

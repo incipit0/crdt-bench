@@ -1,3 +1,5 @@
 /target
 dhat-heap.json
 perf.data*
+/.venv
+/results

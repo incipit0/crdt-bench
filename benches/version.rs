@@ -1,4 +1,4 @@
-use std::{any::Any, cell::RefCell, rc::Rc};
+use std::{any::Any, cell::RefCell, hint::black_box, rc::Rc};
 
 use automerge::ChangeHash;
 use crdt_bench::{
@@ -18,9 +18,16 @@ use yrs::{
 };
 
 static N: usize = 10;
-static NUM_VERS: usize = 1000;
-static VER_TO_GO: usize = 100;
+static NUM_VERS: usize = 10000;
 static SAMPLE_SIZE: usize = 10;
+
+fn ver_to_diff() -> std::ops::Range<usize> {
+    0..std::cmp::min(19, NUM_VERS - 1)
+}
+
+fn ver_to_back() -> std::ops::Range<usize> {
+    0..NUM_VERS
+}
 
 enum Checkpoint {
     AM(Vec<ChangeHash>),
@@ -38,7 +45,7 @@ fn checkpoint(doc: Rc<RefCell<dyn Any>>) -> Checkpoint {
     }
 }
 
-fn revert_version(doc: Rc<RefCell<dyn Any>>, checkpoints: Vec<Checkpoint>, to_ver: usize) {
+fn revert_version(doc: Rc<RefCell<dyn Any>>, checkpoints: &Vec<Checkpoint>, to_ver: usize) {
     let mut doc = doc.borrow_mut();
     if let Some(doc1) = doc.downcast_mut::<BenchYrs>() {
         let doc2 = yrs_doc();
@@ -56,6 +63,7 @@ fn revert_version(doc: Rc<RefCell<dyn Any>>, checkpoints: Vec<Checkpoint>, to_ve
                         .unwrap();
                 }
                 debug_assert_eq!(doc2.text().len(), to_ver * N);
+                black_box(doc2.text());
             }
             _ => unreachable!(""),
         }
@@ -65,8 +73,9 @@ fn revert_version(doc: Rc<RefCell<dyn Any>>, checkpoints: Vec<Checkpoint>, to_ve
             Checkpoint::AM(heads) => heads,
             _ => unreachable!(),
         };
-        let doc2 = doc.fork_at(snap).unwrap();
-        debug_assert_eq!(doc2.text().len(), to_ver * N);
+        let text = doc.text_at(snap).unwrap();
+        debug_assert_eq!(text.len(), to_ver * N);
+        black_box(text);
     } else {
         unreachable!("unknown doc type");
     }
@@ -75,8 +84,10 @@ fn revert_version(doc: Rc<RefCell<dyn Any>>, checkpoints: Vec<Checkpoint>, to_ve
 fn edit_and_go_back(c: &mut Criterion) {
     let docs: Vec<DocRef> = vec![am_doc(), yrs_no_gc()];
     let mut group = c.benchmark_group(format!(
-        "Make changes {} character with {} versions and revert to previous versions {}",
-        N, NUM_VERS, VER_TO_GO
+        "Make changes {} character with {} versions and revert to previous {:?} versions",
+        N,
+        NUM_VERS,
+        ver_to_back()
     ));
     group.sample_size(SAMPLE_SIZE);
 
@@ -105,16 +116,14 @@ fn edit_and_go_back(c: &mut Criterion) {
                         checkpoints.push(checkpoint(doc.clone()));
                         ofs += t.len();
                     }
-                    revert_version(doc.clone(), checkpoints, VER_TO_GO);
+                    for ver in ver_to_back() {
+                        revert_version(doc.clone(), &checkpoints, ver);
+                    }
                 },
                 criterion::BatchSize::SmallInput,
             );
         });
     }
-}
-
-fn ver_to_diff() -> impl Iterator<Item = usize> {
-    0..std::cmp::min(19, NUM_VERS - 1)
 }
 
 fn track_version(
@@ -143,7 +152,7 @@ fn edit_and_diff(c: &mut Criterion) {
         texts.push(generate_random_string(N));
     }
 
-    let am = |(doc, texts): (Rc<RefCell<BenchAM>>, Vec<String>)| {
+    let am_setup = |doc: Rc<RefCell<BenchAM>>, texts: Vec<String>| {
         let mut ofs: usize = 0;
         let mut checkpoints = Vec::new();
         for t in &texts {
@@ -151,21 +160,35 @@ fn edit_and_diff(c: &mut Criterion) {
             checkpoints.push(doc.borrow_mut().get_heads());
             ofs += t.len();
         }
-
         debug_assert_eq!(doc.borrow().text().len(), ofs);
+        checkpoints
+            .into_iter()
+            .map(|heads| Checkpoint::AM(heads))
+            .collect::<Vec<Checkpoint>>()
+    };
+
+    let am_diff = |(doc, checkpoints): (Rc<RefCell<BenchAM>>, Vec<Checkpoint>)| {
         let mut doc = doc.borrow_mut();
         // let tot = doc.encoded_state().iter().len();
         // println!("am doc size {}", tot);
+
         let heads = doc.get_heads();
         for v in ver_to_diff() {
-            let patch = doc.diff(&checkpoints[v], &heads);
+            let Checkpoint::AM(ref cp) = checkpoints[v] else {
+                unreachable!()
+            };
+            let patch = doc.diff(&cp, &heads);
             assert!(patch.len() > 0);
         }
     };
 
     // for yrs we take snapshots each time we finish adding a chunk of texts
     // more snapshots mean more space needed
-    let yrs = |(doc, texts): (Rc<RefCell<BenchYrs>>, Vec<String>)| {
+    // Yrs provides two APIs: diff_range and delta. Diff returns a git diff like
+    // description for two snapshots, which describes what has been added, removed, etc.
+    // A delta is more like an automerge patch where describes a single change done
+    // over the text
+    let yrs_setup = |doc: Rc<RefCell<BenchYrs>>, texts: Vec<String>| {
         let mut checkpoints = Vec::new();
         let mut ofs = 0;
         checkpoints.push(doc.borrow().transact().snapshot());
@@ -177,21 +200,36 @@ fn edit_and_diff(c: &mut Criterion) {
             checkpoints.push(txn.snapshot());
         }
         debug_assert_eq!(doc.borrow().text().len(), ofs);
+        checkpoints
+            .into_iter()
+            .map(|snap| Checkpoint::Yrs(snap))
+            .collect::<Vec<Checkpoint>>()
+    };
 
+    let yrs_diff = |(doc, checkpoints): (Rc<RefCell<BenchYrs>>, Vec<Checkpoint>)| {
         // let tot: usize = checkpoints.iter().map(|c| c.encode_v1().len()).sum();
         // let doc_size = doc.borrow_mut().encoded_state().len();
         // println!(
         //     "total checkpoints encoded size {}, doc size {}",
         //     tot, doc_size
         // );
-        let last_snapshot = checkpoints.last();
+        let last_snapshot = checkpoints.last().map(|cp| match cp {
+            Checkpoint::Yrs(snap) => snap,
+            _ => unreachable!(),
+        });
+
         for v in ver_to_diff() {
             let doc_borrow = doc.borrow_mut();
             let tref = doc_borrow.get_text_obj();
+
+            let Checkpoint::Yrs(ref cur_snapshot) = checkpoints[v] else {
+                unreachable!()
+            };
+
             let diff = tref.diff_range(
                 &mut doc_borrow.transact_mut(),
                 last_snapshot,
-                Some(&checkpoints[v]),
+                Some(&cur_snapshot),
                 YChange::identity,
             );
             assert!(diff.len() > 0);
@@ -228,9 +266,10 @@ fn edit_and_diff(c: &mut Criterion) {
                 for _ in 0..NUM_VERS {
                     texts.push(generate_random_string(N));
                 }
-                (new_doc, texts)
+                let checkpoints = am_setup(new_doc.clone(), texts);
+                (new_doc.clone(), checkpoints)
             },
-            am,
+            am_diff,
             criterion::BatchSize::SmallInput,
         );
     });
@@ -243,31 +282,32 @@ fn edit_and_diff(c: &mut Criterion) {
                 for _ in 0..NUM_VERS {
                     texts.push(generate_random_string(N));
                 }
-                (new_doc, texts)
+                let chkpts = yrs_setup(new_doc.clone(), texts);
+                (new_doc.clone(), chkpts)
             },
-            yrs,
+            yrs_diff,
             criterion::BatchSize::SmallInput,
         );
     });
 
     // The delta tracking is mainly used for applications to see what is happening
     // with each delta, e.g. what they need to do
-    group.bench_function("Yrs + delta tracking", |b| {
-        b.iter_batched(
-            || {
-                let new_doc = yrs_doc();
-                let mut texts = Vec::new();
-                for _ in 0..NUM_VERS {
-                    texts.push(generate_random_string(N));
-                }
-                (new_doc, texts)
-            },
-            yrs_delta,
-            criterion::BatchSize::SmallInput,
-        );
-    });
+    // group.bench_function("Yrs + delta tracking", |b| {
+    //     b.iter_batched(
+    //         || {
+    //             let new_doc = yrs_doc();
+    //             let mut texts = Vec::new();
+    //             for _ in 0..NUM_VERS {
+    //                 texts.push(generate_random_string(N));
+    //             }
+    //             (new_doc, texts)
+    //         },
+    //         yrs_delta,
+    //         criterion::BatchSize::SmallInput,
+    //     );
+    // });
 }
 
-criterion_group!(version, edit_and_go_back, edit_and_diff);
+criterion_group!(version, edit_and_diff);
 
 criterion_main!(version);

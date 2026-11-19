@@ -32,7 +32,7 @@ pub fn run() {
     }
     let compressed = doc.encoded_state();
 
-    let doc_again = doc.load(compressed);
+    let doc_again = BenchAM::load(compressed);
     black_box(doc_again);
     println!("{}", doc.text());
 }

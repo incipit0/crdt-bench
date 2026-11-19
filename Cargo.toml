@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-automerge = "0.7.4" # { path = "../automerge/rust/automerge" } # change to 0.6.0 for automerge 2 and 0.7.3 for 3
+automerge = "0.12.0" # { path = "../automerge/rust/automerge" } # change to 0.6.0 for automerge 2 and 0.12.0 for 3
 criterion = "0.8.1"
 dhat = "0.3.3"
 divan = "0.1.21"
