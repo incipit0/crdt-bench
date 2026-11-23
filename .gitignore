@@ -2,4 +2,5 @@
 dhat-heap.json
 perf.data*
 /.venv
-/results
+/benches/data/battery
+.claude/

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 182" width="900" role="img" aria-label="range" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<title>range</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="102.80000000000001" y="26" font-size="15" font-weight="600" fill="#262624">range</text>
+<text x="803.0" y="26" font-size="12" fill="#262624">yrs</text>
+<rect x="787.0" y="17" width="11" height="11" rx="2" fill="#eb6834"/>
+<text x="706.0" y="26" font-size="12" fill="#262624">automerge</text>
+<rect x="690.0" y="17" width="11" height="11" rx="2" fill="#2a78d6"/>
+<line x1="102.8" y1="52" x2="102.8" y2="132.0" stroke="#e6e5e0"/>
+<text x="102.8" y="148.0" font-size="11" text-anchor="middle" fill="#6b6a63">100µs</text>
+<line x1="370.0" y1="52" x2="370.0" y2="132.0" stroke="#e6e5e0"/>
+<text x="370.0" y="148.0" font-size="11" text-anchor="middle" fill="#6b6a63">1ms</text>
+<line x1="637.2" y1="52" x2="637.2" y2="132.0" stroke="#e6e5e0"/>
+<text x="637.2" y="148.0" font-size="11" text-anchor="middle" fill="#6b6a63">10ms</text>
+<line x1="102.80000000000001" y1="52" x2="102.80000000000001" y2="132.0" stroke="#9a998f"/>
+<text x="463.4" y="170.0" font-size="12" text-anchor="middle" fill="#6b6a63">median time per iteration · whiskers: min–max · log scale</text>
+<text x="94.8" y="72.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">range/10000</text>
+<g><title>automerge · range/10000: median 2.38ms, min 2.36ms, max 2.50ms</title>
+<rect x="102.80000000000001" y="58.0" width="721.2" height="14.0" fill="transparent"/>
+<path d="M102.80000000000001,59.0H467.5Q470.5,59.0 470.5,62.0V68.0Q470.5,71.0 467.5,71.0H102.80000000000001Z" fill="#2a78d6"/>
+<text x="481.4" y="65.0" font-size="10.5" dominant-baseline="middle" fill="#262624">2.38ms</text>
+<path d="M469.5,65.0H476.4M469.5,62.0V68.0M476.4,62.0V68.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<g><title>yrs · range/10000: median 418.59µs, min 418.08µs, max 422.09µs</title>
+<rect x="102.80000000000001" y="72.0" width="721.2" height="14.0" fill="transparent"/>
+<path d="M102.80000000000001,73.0H265.9Q268.9,73.0 268.9,76.0V82.0Q268.9,85.0 265.9,85.0H102.80000000000001Z" fill="#eb6834"/>
+<text x="274.9" y="79.0" font-size="10.5" dominant-baseline="middle" fill="#262624">419µs</text>
+<path d="M268.8,79.0H269.9M268.8,76.0V82.0M269.9,76.0V82.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="94.8" y="112.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">range/100000</text>
+<g><title>automerge · range/100000: median 24.64ms, min 24.23ms, max 25.05ms</title>
+<rect x="102.80000000000001" y="98.0" width="721.2" height="14.0" fill="transparent"/>
+<path d="M102.80000000000001,99.0H738.9Q741.9,99.0 741.9,102.0V108.0Q741.9,111.0 738.9,111.0H102.80000000000001Z" fill="#2a78d6"/>
+<text x="748.8" y="105.0" font-size="10.5" dominant-baseline="middle" fill="#262624">24.6ms</text>
+<path d="M739.9,105.0H743.8M739.9,102.0V108.0M743.8,102.0V108.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<g><title>yrs · range/100000: median 11.84ms, min 11.67ms, max 12.49ms</title>
+<rect x="102.80000000000001" y="112.0" width="721.2" height="14.0" fill="transparent"/>
+<path d="M102.80000000000001,113.0H653.8Q656.8,113.0 656.8,116.0V122.0Q656.8,125.0 653.8,125.0H102.80000000000001Z" fill="#eb6834"/>
+<text x="668.0" y="119.0" font-size="10.5" dominant-baseline="middle" fill="#262624">11.8ms</text>
+<path d="M655.2,119.0H663.0M655.2,116.0V122.0M663.0,116.0V122.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+</svg>

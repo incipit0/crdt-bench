@@ -1,0 +1,125 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "./target-lto/release/battery",
+        "run",
+        "--experiment",
+        "/home/vincent/proj/crdt-bench/results/20261122-163943-crosscheck-automerge-battery/crdt-bench-dev-automerge-lto",
+        "--library",
+        "automerge",
+        "--tier",
+        "all",
+        "--sample-count",
+        "10",
+        "--warmup-count",
+        "1"
+      ],
+      "crates": {
+        "automerge": "0.12.0",
+        "yrs": "0.28.1"
+      },
+      "data": {
+        "edits.json": {
+          "bytes": 3249487,
+          "sha256": "6956332c96fbebfa3a88bdb51a6a4b29f3e13327830452bfd6e151c9a70eb8e8"
+        },
+        "egwalker-paper/A1.automerge": {
+          "bytes": 787154,
+          "sha256": "bd87dd4f3fbce15e60ef19f051394e01dcdf2c0babf7ad264a8a5a8ba6d0cfa1"
+        },
+        "egwalker-paper/A1.json": {
+          "bytes": 4190180,
+          "sha256": "0478566e6d10af58e78b7838b185743d15b1352a44bac887330bddc7de267693"
+        },
+        "egwalker-paper/A1.yrs": {
+          "bytes": 529407,
+          "sha256": "7024ef518720329541ab929826fdbcd75c1ad9e48d2214ca7ff91e5bebd9d7c8"
+        },
+        "egwalker-paper/A2.automerge": {
+          "bytes": 578946,
+          "sha256": "0447ec8a644eede2443a8f6f18d90b8303a1e8b81671e7fc231a4eea99dd8de5"
+        },
+        "egwalker-paper/A2.json": {
+          "bytes": 1513005,
+          "sha256": "d81efb97c3316c0b8d9555f26be2fcbe57e70f36b2e5fd38256e636a747bfba0"
+        },
+        "egwalker-paper/A2.yrs": {
+          "bytes": 629276,
+          "sha256": "32f9c8903997f3701af441c1eb7b5534843d92f0aab14391af59a0378bf8ba17"
+        },
+        "egwalker-paper/C1.automerge": {
+          "bytes": 141590,
+          "sha256": "a0f8998e69bb51633f982b22c02a88aac170913ae1da3fd97d6abd73c52c184c"
+        },
+        "egwalker-paper/C1.json": {
+          "bytes": 13811442,
+          "sha256": "24379137d793e9860f5252e0a513732ff222292c7c2b77d22d7816f62b5c01de"
+        },
+        "egwalker-paper/C1.yrs": {
+          "bytes": 1099368,
+          "sha256": "aecbf40347e0fd9b4cc6b4a43c4ceb07d4d86a3ec949a39deff015c8a656c4cc"
+        },
+        "egwalker-paper/C2.automerge": {
+          "bytes": 213016,
+          "sha256": "a58809c22e72ff1c46a980e794fb010e2c8ee18095ddcc5eadf2267e5661c561"
+        },
+        "egwalker-paper/C2.json": {
+          "bytes": 18956694,
+          "sha256": "130f86013d72b558571d0a41edd9d56024a04b47311210dabeca99217b608154"
+        },
+        "egwalker-paper/C2.yrs": {
+          "bytes": 905861,
+          "sha256": "95bbbeee7d32d3f84d25584c9667a61aaa52756ea586b4688363fe6071710d28"
+        },
+        "egwalker-paper/README.md": {
+          "bytes": 779,
+          "sha256": "252129b1699b75169b4d010edf8a9e2e61c9ed0dc3d750bdbe9f3b0ce6130030"
+        },
+        "egwalker-paper/S1.automerge": {
+          "bytes": 342625,
+          "sha256": "d89c15df3554c3c36be0ad838fbc5873d7b18e326d5344c00cd0c9cefe97c61d"
+        },
+        "egwalker-paper/S1.json": {
+          "bytes": 3011880,
+          "sha256": "3f2e68eae6272a4b7c31a7cbb05d76097ed20fceeb8cf12c2a1968ef25941fa7"
+        },
+        "egwalker-paper/S1.yrs": {
+          "bytes": 674157,
+          "sha256": "54c07583c76cefd9d13c1fb471620255897f5d23a402f05597c1be3a45751815"
+        },
+        "egwalker-paper/S2.automerge": {
+          "bytes": 601801,
+          "sha256": "8959c56a27089e7905d850b0ac2845d555f294c07d2ff60b8e7c8d0e454a4d45"
+        },
+        "egwalker-paper/S2.json": {
+          "bytes": 1685725,
+          "sha256": "b62e8a7e8eb58c9439b21ecd5c3f6afdfa515a0204ff3ae179732b6a0d4c764b"
+        },
+        "egwalker-paper/S2.yrs": {
+          "bytes": 660840,
+          "sha256": "59b4f9b5e7b9745d74f5752dc88218f97c9357149825fa8e38a816853ded8af7"
+        },
+        "egwalker-paper/S3.automerge": {
+          "bytes": 832481,
+          "sha256": "c289f0c8b01daaa12447a322141eb57c62b11d256d8d1a811047cc4a6828fd37"
+        },
+        "egwalker-paper/S3.json": {
+          "bytes": 2478019,
+          "sha256": "42a508886a977bd1744a3983f21840a7eec1c7b674f2ac356614f9041f51f986"
+        },
+        "egwalker-paper/S3.yrs": {
+          "bytes": 606909,
+          "sha256": "a79ede6638019bea0aef3a716733907340f2f6dc8aebae006c89bd24cc40cd3e"
+        }
+      },
+      "data_dir": "/home/vincent/proj/crdt-bench/benches/data/battery",
+      "features": [],
+      "git_commit": "fde1956",
+      "git_dirty": true,
+      "rustc": null,
+      "started": "2026-11-22T17:19:29+00:00"
+    }
+  ],
+  "experiment": "crdt-bench-dev-automerge-lto"
+}

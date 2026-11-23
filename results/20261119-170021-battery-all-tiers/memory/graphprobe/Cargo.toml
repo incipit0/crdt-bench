@@ -1,0 +1,9 @@
+[package]
+name = "graphprobe"
+version = "0.1.0"
+edition = "2024"
+[dependencies]
+automerge = { path = "am-patched" }
+[profile.release]
+debug = 1
+[workspace]

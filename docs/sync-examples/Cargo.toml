@@ -1,0 +1,14 @@
+[package]
+name = "sync-examples"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+# Two-peer sync examples used in ../sync-protocols.md.
+#   cargo run --bin ysync    # y-sync with yrs
+#   cargo run --bin amsync   # Automerge sync protocol
+[dependencies]
+automerge = "=0.12.0"
+yrs = "=0.28.1"
+
+[workspace]

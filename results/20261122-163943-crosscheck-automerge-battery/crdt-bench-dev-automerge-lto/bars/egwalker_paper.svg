@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 942" width="900" role="img" aria-label="egwalker_paper" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<title>egwalker_paper</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="95.9" y="26" font-size="15" font-weight="600" fill="#262624">egwalker_paper</text>
+<text x="803.0" y="26" font-size="12" fill="#262624">yrs</text>
+<rect x="787.0" y="17" width="11" height="11" rx="2" fill="#eb6834"/>
+<text x="706.0" y="26" font-size="12" fill="#262624">automerge</text>
+<rect x="690.0" y="17" width="11" height="11" rx="2" fill="#2a78d6"/>
+<line x1="95.9" y1="52" x2="95.9" y2="892.0" stroke="#e6e5e0"/>
+<text x="95.9" y="908.0" font-size="11" text-anchor="middle" fill="#6b6a63">100µs</text>
+<line x1="265.2" y1="52" x2="265.2" y2="892.0" stroke="#e6e5e0"/>
+<text x="265.2" y="908.0" font-size="11" text-anchor="middle" fill="#6b6a63">1ms</text>
+<line x1="434.5" y1="52" x2="434.5" y2="892.0" stroke="#e6e5e0"/>
+<text x="434.5" y="908.0" font-size="11" text-anchor="middle" fill="#6b6a63">10ms</text>
+<line x1="603.8" y1="52" x2="603.8" y2="892.0" stroke="#e6e5e0"/>
+<text x="603.8" y="908.0" font-size="11" text-anchor="middle" fill="#6b6a63">100ms</text>
+<line x1="773.0" y1="52" x2="773.0" y2="892.0" stroke="#e6e5e0"/>
+<text x="773.0" y="908.0" font-size="11" text-anchor="middle" fill="#6b6a63">1s</text>
+<line x1="95.9" y1="52" x2="95.9" y2="892.0" stroke="#9a998f"/>
+<text x="459.9" y="930.0" font-size="12" text-anchor="middle" fill="#6b6a63">median time per iteration · whiskers: min–max · log scale</text>
+<text x="87.9" y="72.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">clone/A1</text>
+<g><title>automerge · clone/A1: median 463.52µs, min 458.06µs, max 467.45µs</title>
+<rect x="95.9" y="58.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,59.0H205.7Q208.7,59.0 208.7,62.0V68.0Q208.7,71.0 205.7,71.0H95.9Z" fill="#2a78d6"/>
+<text x="214.3" y="65.0" font-size="10.5" dominant-baseline="middle" fill="#262624">464µs</text>
+<path d="M207.8,65.0H209.3M207.8,62.0V68.0M209.3,62.0V68.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="112.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">clone/A2</text>
+<g><title>automerge · clone/A2: median 676.82µs, min 662.55µs, max 716.53µs</title>
+<rect x="95.9" y="98.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,99.0H233.5Q236.5,99.0 236.5,102.0V108.0Q236.5,111.0 233.5,111.0H95.9Z" fill="#2a78d6"/>
+<text x="245.7" y="105.0" font-size="10.5" dominant-baseline="middle" fill="#262624">677µs</text>
+<path d="M234.9,105.0H240.7M234.9,102.0V108.0M240.7,102.0V108.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="152.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">clone/C1</text>
+<g><title>automerge · clone/C1: median 3.79ms, min 3.77ms, max 3.84ms</title>
+<rect x="95.9" y="138.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,139.0H360.1Q363.1,139.0 363.1,142.0V148.0Q363.1,151.0 360.1,151.0H95.9Z" fill="#2a78d6"/>
+<text x="369.1" y="145.0" font-size="10.5" dominant-baseline="middle" fill="#262624">3.79ms</text>
+<path d="M362.7,145.0H364.1M362.7,142.0V148.0M364.1,142.0V148.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="192.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">clone/C2</text>
+<g><title>automerge · clone/C2: median 5.86ms, min 5.83ms, max 5.94ms</title>
+<rect x="95.9" y="178.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,179.0H392.2Q395.2,179.0 395.2,182.0V188.0Q395.2,191.0 392.2,191.0H95.9Z" fill="#2a78d6"/>
+<text x="401.1" y="185.0" font-size="10.5" dominant-baseline="middle" fill="#262624">5.86ms</text>
+<path d="M394.8,185.0H396.1M394.8,182.0V188.0M396.1,182.0V188.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="232.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">clone/S1</text>
+<g><title>automerge · clone/S1: median 196.07µs, min 192.70µs, max 224.16µs</title>
+<rect x="95.9" y="218.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,219.0H142.4Q145.4,219.0 145.4,222.0V228.0Q145.4,231.0 142.4,231.0H95.9Z" fill="#2a78d6"/>
+<text x="160.2" y="225.0" font-size="10.5" dominant-baseline="middle" fill="#262624">196µs</text>
+<path d="M144.1,225.0H155.2M144.1,222.0V228.0M155.2,222.0V228.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="272.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">clone/S2</text>
+<g><title>automerge · clone/S2: median 283.05µs, min 278.94µs, max 290.66µs</title>
+<rect x="95.9" y="258.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,259.0H169.4Q172.4,259.0 172.4,262.0V268.0Q172.4,271.0 169.4,271.0H95.9Z" fill="#2a78d6"/>
+<text x="179.3" y="265.0" font-size="10.5" dominant-baseline="middle" fill="#262624">283µs</text>
+<path d="M171.3,265.0H174.3M171.3,262.0V268.0M174.3,262.0V268.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="312.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">clone/S3</text>
+<g><title>automerge · clone/S3: median 347.93µs, min 345.39µs, max 354.47µs</title>
+<rect x="95.9" y="298.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,299.0H184.6Q187.6,299.0 187.6,302.0V308.0Q187.6,311.0 184.6,311.0H95.9Z" fill="#2a78d6"/>
+<text x="193.9" y="305.0" font-size="10.5" dominant-baseline="middle" fill="#262624">348µs</text>
+<path d="M187.0,305.0H188.9M187.0,302.0V308.0M188.9,302.0V308.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="352.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">get_text/A1</text>
+<g><title>automerge · get_text/A1: median 947.39µs, min 946.59µs, max 957.81µs</title>
+<rect x="95.9" y="338.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,339.0H258.2Q261.2,339.0 261.2,342.0V348.0Q261.2,351.0 258.2,351.0H95.9Z" fill="#2a78d6"/>
+<text x="267.0" y="345.0" font-size="10.5" dominant-baseline="middle" fill="#262624">947µs</text>
+</g>
+<text x="87.9" y="392.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">get_text/A2</text>
+<g><title>automerge · get_text/A2: median 5.56ms, min 5.54ms, max 5.63ms</title>
+<rect x="95.9" y="378.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,379.0H388.3Q391.3,379.0 391.3,382.0V388.0Q391.3,391.0 388.3,391.0H95.9Z" fill="#2a78d6"/>
+<text x="397.2" y="385.0" font-size="10.5" dominant-baseline="middle" fill="#262624">5.56ms</text>
+<path d="M391.1,385.0H392.2M391.1,382.0V388.0M392.2,382.0V388.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="432.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">get_text/C1</text>
+<g><title>automerge · get_text/C1: median 12.62ms, min 12.38ms, max 12.65ms</title>
+<rect x="95.9" y="418.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,419.0H448.6Q451.6,419.0 451.6,422.0V428.0Q451.6,431.0 448.6,431.0H95.9Z" fill="#2a78d6"/>
+<text x="456.7" y="425.0" font-size="10.5" dominant-baseline="middle" fill="#262624">12.6ms</text>
+<path d="M450.2,425.0H451.7M450.2,422.0V428.0M451.7,422.0V428.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="472.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">get_text/C2</text>
+<g><title>automerge · get_text/C2: median 12.15ms, min 12.00ms, max 12.31ms</title>
+<rect x="95.9" y="458.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,459.0H445.8Q448.8,459.0 448.8,462.0V468.0Q448.8,471.0 445.8,471.0H95.9Z" fill="#2a78d6"/>
+<text x="454.7" y="465.0" font-size="10.5" dominant-baseline="middle" fill="#262624">12.2ms</text>
+<path d="M447.9,465.0H449.7M447.9,462.0V468.0M449.7,462.0V468.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="512.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">get_text/S1</text>
+<g><title>automerge · get_text/S1: median 7.58ms, min 7.42ms, max 7.61ms</title>
+<rect x="95.9" y="498.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,499.0H411.1Q414.1,499.0 414.1,502.0V508.0Q414.1,511.0 411.1,511.0H95.9Z" fill="#2a78d6"/>
+<text x="419.4" y="505.0" font-size="10.5" dominant-baseline="middle" fill="#262624">7.58ms</text>
+<path d="M412.5,505.0H414.4M412.5,502.0V508.0M414.4,502.0V508.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="552.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">get_text/S2</text>
+<g><title>automerge · get_text/S2: median 3.98ms, min 3.95ms, max 4.01ms</title>
+<rect x="95.9" y="538.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,539.0H363.7Q366.7,539.0 366.7,542.0V548.0Q366.7,551.0 363.7,551.0H95.9Z" fill="#2a78d6"/>
+<text x="372.4" y="545.0" font-size="10.5" dominant-baseline="middle" fill="#262624">3.98ms</text>
+<path d="M366.2,545.0H367.4M366.2,542.0V548.0M367.4,542.0V548.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="592.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">get_text/S3</text>
+<g><title>automerge · get_text/S3: median 2.93ms, min 2.92ms, max 2.97ms</title>
+<rect x="95.9" y="578.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,579.0H341.3Q344.3,579.0 344.3,582.0V588.0Q344.3,591.0 341.3,591.0H95.9Z" fill="#2a78d6"/>
+<text x="350.2" y="585.0" font-size="10.5" dominant-baseline="middle" fill="#262624">2.93ms</text>
+<path d="M343.9,585.0H345.2M343.9,582.0V588.0M345.2,582.0V588.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="632.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">load/A1</text>
+<g><title>automerge · load/A1: median 418.75ms, min 418.01ms, max 421.26ms</title>
+<rect x="95.9" y="618.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,619.0H706.0Q709.0,619.0 709.0,622.0V628.0Q709.0,631.0 706.0,631.0H95.9Z" fill="#2a78d6"/>
+<text x="714.5" y="625.0" font-size="10.5" dominant-baseline="middle" fill="#262624">419ms</text>
+</g>
+<text x="87.9" y="672.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">load/A2</text>
+<g><title>automerge · load/A2: median 306.76ms, min 305.29ms, max 310.67ms</title>
+<rect x="95.9" y="658.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,659.0H683.2Q686.2,659.0 686.2,662.0V668.0Q686.2,671.0 683.2,671.0H95.9Z" fill="#2a78d6"/>
+<text x="692.1" y="665.0" font-size="10.5" dominant-baseline="middle" fill="#262624">307ms</text>
+<path d="M685.8,665.0H687.1M685.8,662.0V668.0M687.1,662.0V668.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="712.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">load/C1</text>
+<g><title>automerge · load/C1: median 466.95ms, min 466.10ms, max 468.43ms</title>
+<rect x="95.9" y="698.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,699.0H714.1Q717.1,699.0 717.1,702.0V708.0Q717.1,711.0 714.1,711.0H95.9Z" fill="#2a78d6"/>
+<text x="722.3" y="705.0" font-size="10.5" dominant-baseline="middle" fill="#262624">467ms</text>
+</g>
+<text x="87.9" y="752.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">load/C2</text>
+<g><title>automerge · load/C2: median 528.20ms, min 524.40ms, max 530.28ms</title>
+<rect x="95.9" y="738.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,739.0H723.1Q726.1,739.0 726.1,742.0V748.0Q726.1,751.0 723.1,751.0H95.9Z" fill="#2a78d6"/>
+<text x="731.4" y="745.0" font-size="10.5" dominant-baseline="middle" fill="#262624">528ms</text>
+</g>
+<text x="87.9" y="792.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">load/S1</text>
+<g><title>automerge · load/S1: median 425.60ms, min 424.12ms, max 439.92ms</title>
+<rect x="95.9" y="778.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,779.0H707.2Q710.2,779.0 710.2,782.0V788.0Q710.2,791.0 707.2,791.0H95.9Z" fill="#2a78d6"/>
+<text x="717.7" y="785.0" font-size="10.5" dominant-baseline="middle" fill="#262624">426ms</text>
+<path d="M710.0,785.0H712.7M710.0,782.0V788.0M712.7,782.0V788.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="832.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">load/S2</text>
+<g><title>automerge · load/S2: median 596.83ms, min 578.75ms, max 601.49ms</title>
+<rect x="95.9" y="818.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,819.0H732.1Q735.1,819.0 735.1,822.0V828.0Q735.1,831.0 732.1,831.0H95.9Z" fill="#2a78d6"/>
+<text x="740.7" y="825.0" font-size="10.5" dominant-baseline="middle" fill="#262624">597ms</text>
+<path d="M732.8,825.0H735.7M732.8,822.0V828.0M735.7,822.0V828.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="87.9" y="872.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">load/S3</text>
+<g><title>automerge · load/S3: median 1.42s, min 1.33s, max 1.43s</title>
+<rect x="95.9" y="858.0" width="728.1" height="14.0" fill="transparent"/>
+<path d="M95.9,859.0H795.7Q798.7,859.0 798.7,862.0V868.0Q798.7,871.0 795.7,871.0H95.9Z" fill="#2a78d6"/>
+<text x="804.1" y="865.0" font-size="10.5" dominant-baseline="middle" fill="#262624">1.42s</text>
+<path d="M793.9,865.0H799.1M793.9,862.0V868.0M799.1,862.0V868.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+</svg>

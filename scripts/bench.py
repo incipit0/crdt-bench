@@ -5,6 +5,9 @@
     python scripts/bench.py run load mem --file-sizes 6k,60k,600k --label am3
     python scripts/bench.py plot results/latest            # re-plot a run
     python scripts/bench.py plot results/am2 results/am3   # compare runs
+    python scripts/bench.py battery                        # plot the latest battery experiment and
+                                                           # add the charts to its report.md
+    python scripts/bench.py battery results/<experiment>   # ...or a given one (plots/ inside it)
 
 Each `run` writes to results/<timestamp>[-<label>]/:
     criterion/    raw Criterion output (CRITERION_HOME for this run only)
@@ -548,6 +551,329 @@ def cmd_plot(args: argparse.Namespace) -> None:
     plot_runs(run_dirs, out, args.formats)
 
 
+# --------------------------------------------------------------------------- battery
+
+# Library names as written by the battery -> display names used in charts.
+BATTERY_LIBS = {"automerge": "Automerge", "yrs": "Yrs"}
+
+
+def load_battery(path: Path, label: str) -> list[dict]:
+    """Rows from a `battery run` result file, with display library and run label."""
+    data = json.loads(path.read_text())
+    if data.get("suite") != "crdt-bench-battery":
+        sys.exit(f"{path} is not a crdt-bench battery result (suite={data.get('suite')!r})")
+    rows = []
+    for r in data["results"]:
+        base, lib = r["name"].rsplit("/", 1)
+        base = r.get("base") or base
+        lib = r.get("library") or lib
+        rows.append({**r, "base": base, "lib": BATTERY_LIBS.get(lib, lib), "run": label})
+    return rows
+
+
+def battery_case(row: dict) -> str:
+    """Benchmark name without its group prefix, for axis labels."""
+    return row["base"].split("/", 1)[1] if "/" in row["base"] else row["base"]
+
+
+def short_value(raw: float, unit_fn) -> str:
+    """At most three significant digits in the value's own unit: 941ms, 45.5ms, 330µs."""
+    unit, scale = unit_fn(raw)
+    text = f"{raw / scale:.3g}"
+    if "e" in text:
+        text = f"{raw / scale:.0f}"
+    sep = " " if unit[-1:] == "B" else ""
+    return f"{text}{sep}{unit}"
+
+
+def plot_battery_bars(plt, title, rows, value, err, xlabel_fmt, unit_fn, colors, multi, out, name, formats, unrunnable):
+    """Horizontal grouped bars: one row per case, one bar per library."""
+    cases = sorted({battery_case(r) for r in rows} | {battery_case(r) for r in unrunnable})
+    names = list(dict.fromkeys(series_name(r, multi) for r in rows))
+    vals = [value(r) for r in rows]
+    unit, scale = unit_fn(max(vals))
+    fig, ax = plt.subplots(figsize=(8.5, 1.4 + 0.32 * len(cases) * max(len(names), 1)))
+    height = 0.8 / max(len(names), 1)
+    for i, n in enumerate(names):
+        lookup = {battery_case(r): r for r in rows if series_name(r, multi) == n}
+        ys = [j - 0.4 + height * (i + 0.5) for j, c in enumerate(cases) if c in lookup]
+        rs = [lookup[c] for c in cases if c in lookup]
+        xs = [value(r) / scale for r in rs]
+        xerr = None
+        if err:
+            xerr = [[(value(r) - err(r)[0]) / scale for r in rs], [(err(r)[1] - value(r)) / scale for r in rs]]
+        hatch = HATCHES[RUN_INDEX.get(rs[0]["run"], 0) % len(HATCHES)] if rs else None
+        ax.barh(ys, xs, height * 0.92, color=colors[n], hatch=hatch, edgecolor=SURFACE, lw=0, label=n,
+                xerr=xerr, ecolor=INK_2, capsize=0, error_kw={"lw": 1})
+        for y, r in zip(ys, rs):  # value label just past the bar or its whisker
+            end = max(value(r), err(r)[1] if err else 0) / scale
+            ax.annotate(short_value(value(r), unit_fn), (end, y), xytext=(4, 0), textcoords="offset points",
+                        va="center", fontsize=7.5, color=INK)
+    for r in unrunnable:  # say "n/a" instead of leaving a silent gap
+        n = series_name(r, multi)
+        if n in names:
+            j, i = cases.index(battery_case(r)), names.index(n)
+            label = " unsupported" if r["kind"] == "unsupported" else " n/a"
+            ax.text(0, j - 0.4 + height * (i + 0.5), label, va="center", fontsize=8, color=INK_2)
+    ax.set_yticks(range(len(cases)), cases)
+    ax.invert_yaxis()
+    if max(vals) / max(min(vals), 1e-9) >= 30:
+        ax.set_xscale("log")
+    left, right = ax.get_xlim()  # room for the value labels
+    ax.set_xlim(left, right * (2.5 if ax.get_xscale() == "log" else 1.12))
+    ax.set_xlabel(xlabel_fmt.format(unit=unit))
+    ax.grid(axis="y", visible=False)
+    ax.set_title(title, pad=12)
+    if len(names) > 1:  # in the title row, so it never covers a bar
+        ax.legend(loc="lower right", bbox_to_anchor=(1, 1), ncol=len(names), fontsize=9, frameon=False,
+                  borderaxespad=0.2)
+    ax.minorticks_off()
+    if ax.get_xscale() == "log":
+        from matplotlib.ticker import FuncFormatter
+
+        ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))
+    fig.tight_layout()
+    paths = save(fig, out, name, formats)
+    plt.close(fig)
+    return paths
+
+
+def plot_battery_series(plt, base, rows, colors, multi, out, formats):
+    """Per-step time for a series benchmark: faint raw points, bold rolling median."""
+    import statistics
+
+    unit, scale = time_unit(max(max(r["points"]) for r in rows))
+    fig, ax = plt.subplots(figsize=(8.5, 4))
+    for r in rows:
+        n = series_name(r, multi)
+        pts = [p / scale for p in r["points"]]
+        w = max(len(pts) // 50, 1)
+        smooth = [statistics.median(pts[max(0, i - w): i + w + 1]) for i in range(len(pts))]
+        ls = LINESTYLES[RUN_INDEX.get(r["run"], 0) % len(LINESTYLES)]
+        ax.plot(pts, color=colors[n], lw=0.6, alpha=0.25)
+        ax.plot(smooth, color=colors[n], lw=2, ls=ls, label=n)
+    if max(max(r["points"]) for r in rows) / max(min(min(r["points"]) for r in rows), 1) >= 100:
+        ax.set_yscale("log")
+        plain_log_labels(ax)
+    ax.set_xlabel("step")
+    ax.set_ylabel(f"time per step ({unit})")
+    ax.set_title(base, pad=20)
+    ax.text(0, 1.01, "thin: every step · bold: rolling median", transform=ax.transAxes, fontsize=8.5, color=INK_2, va="bottom")
+    ax.legend(loc="upper left", fontsize=9)
+    fig.tight_layout()
+    paths = save(fig, out, slug(base), formats)
+    plt.close(fig)
+    return paths
+
+
+# Lighter step of a palette slot, for a library's steady-state bar beside its peak.
+TINTS = {"#2a78d6": "#86b6ef", "#eb6834": "#f6b393"}
+# Eg-walker traces in the paper's order: sequential, asynchronous, concurrent.
+EGWALKER_TRACES = ["S1", "S2", "S3", "A1", "A2", "C1", "C2"]
+
+
+def tint(color: str) -> str:
+    if color in TINTS:
+        return TINTS[color]
+    rgb = [int(color[i:i + 2], 16) for i in (1, 3, 5)]
+    return "#" + "".join(f"{(c + 255) // 2:02x}" for c in rgb)
+
+
+def memory_block(case: str) -> tuple[int, int]:
+    """Generated loads, then Eg-walker loads, then Eg-walker clones (and anything else last)."""
+    op = {"load": 0, "clone": 1}.get(case.split("/", 1)[0], 2)
+    return op, int("egwalker_paper/" in case)
+
+
+def memory_order(case: str) -> tuple:
+    trace = case.rsplit("/", 1)[-1]
+    rank = EGWALKER_TRACES.index(trace) if trace in EGWALKER_TRACES else -1
+    return (*memory_block(case), rank, case)
+
+
+def plot_memory_peak_vs_steady(plt, rows, colors, multi, out, formats):
+    """Peak vs steady-state heap, one panel per library on a shared log axis.
+
+    A long dark bar over a short light one is memory the operation needed only
+    while it ran.
+    """
+    from matplotlib.ticker import FuncFormatter
+
+    names = list(dict.fromkeys(series_name(r, multi) for r in rows))
+    lookup = {(battery_case(r), series_name(r, multi)): r for r in rows}
+    cases = sorted({battery_case(r) for r in rows}, key=memory_order)
+    largest = max(max(r["peak_bytes"], r["steady_bytes"]) for r in rows)
+    unit, scale = byte_unit(largest)
+    smallest = min(max(min(r["peak_bytes"], r["steady_bytes"]), 1) for r in rows)
+    # Shared, with room for the value labels past the longest bar.
+    xlim = (smallest / scale / 2, largest / scale * 4)
+
+    fig, axes = plt.subplots(1, len(names), figsize=(7 * len(names), 0.42 * len(cases) + 2.2),
+                             sharey=True, squeeze=False)
+    h = 0.38
+    for ax, n in zip(axes[0], names):
+        peak_c, steady_c = colors[n], tint(colors[n])
+        for i, c in enumerate(cases):
+            r = lookup.get((c, n))
+            if r is None:
+                continue
+            for dy, key, color, label_color in ((-h / 2, "peak_bytes", peak_c, INK),
+                                                (h / 2, "steady_bytes", steady_c, INK_2)):
+                v = r[key] / scale
+                ax.barh(i + dy, v, h, color=color, edgecolor=SURFACE, linewidth=1.5)
+                ax.annotate(short_value(r[key], byte_unit), (v, i + dy), xytext=(4, 0),
+                            textcoords="offset points", va="center", fontsize=8, color=label_color)
+        ax.set_xscale("log")
+        ax.set_xlim(*xlim)
+        ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))
+        ax.minorticks_off()
+        ax.grid(axis="y", visible=False)
+        ax.set_xlabel(f"heap ({unit}, log scale)")
+        ax.set_title(n, color=peak_c, fontsize=13)
+        ax.legend(handles=[plt.Rectangle((0, 0), 1, 1, color=peak_c), plt.Rectangle((0, 0), 1, 1, color=steady_c)],
+                  labels=["peak during the operation", "steady afterwards"], loc="lower right",
+                  bbox_to_anchor=(1, 1), ncol=2, frameon=False, fontsize=9, borderaxespad=0.2)
+        for i in range(1, len(cases)):  # rule between blocks of related benchmarks
+            if memory_block(cases[i]) != memory_block(cases[i - 1]):
+                ax.axhline(i - 0.5, color=GRID, lw=1)
+    axes[0][0].set_yticks(range(len(cases)), cases)
+    axes[0][0].invert_yaxis()
+    fig.suptitle("Memory: peak during the operation vs steady state afterwards",
+                 x=0.01, ha="left", fontsize=13.5, fontweight="bold", color=INK)
+    fig.tight_layout()
+    paths = save(fig, out, "memory-peak-vs-steady", formats)
+    plt.close(fig)
+    return paths
+
+
+@dataclass
+class Figure:
+    title: str
+    path: Path
+    caption: str = ""
+
+
+# Intro written above a slot's charts.
+SLOT_INTROS = {
+    "sampled": "One chart per group: the bar is the median, the whisker spans the fastest and slowest sample.",
+}
+# An empty or filled slot left by `battery report`, see figure_slot in src/battery/report.rs.
+SLOT = re.compile(r"(<!-- figures:(?P<name>[^\n]+?) -->\n)(?P<body>.*?)(<!-- /figures:(?P=name) -->)", re.S)
+
+
+def slot_body(name: str, figs: list[Figure], report_dir: Path, as_html: bool) -> str:
+    def rel(p: Path) -> str:
+        return Path(os.path.relpath(p.resolve(), report_dir.resolve())).as_posix()
+
+    intro = SLOT_INTROS.get(name, "")
+    if as_html:
+        out = f"<p>{html.escape(intro)}</p>\n" if intro else ""
+        for f in figs:
+            cap = f"<figcaption>{html.escape(f.caption)}</figcaption>" if f.caption else ""
+            out += (f'<figure class="chart"><img src="{html.escape(rel(f.path))}" '
+                    f'alt="{html.escape(f.title)}">{cap}</figure>\n')
+        return out
+    out = f"{intro}\n\n" if intro else ""
+    for f in figs:
+        out += f"![{f.title}]({rel(f.path)})\n\n"
+        if f.caption:
+            out += f"{f.caption}\n\n"
+    return out
+
+
+def fill_report(report_dir: Path, slots: dict[str, list[Figure]]) -> None:
+    """Put the charts into the figure slots of report.md / report.html written by `battery report`.
+
+    Replaces whatever a slot already holds, so this can be re-run; a slot with
+    no charts this time is emptied.
+    """
+    for name, as_html in (("report.md", False), ("report.html", True)):
+        path = report_dir / name
+        if not path.exists():
+            continue
+        text = path.read_text()
+        filled = 0
+
+        def repl(m: re.Match) -> str:
+            nonlocal filled
+            figs = slots.get(m["name"], [])
+            filled += bool(figs)
+            return m[1] + (slot_body(m["name"], figs, report_dir, as_html) if figs else "") + m[4]
+
+        new, count = SLOT.subn(repl, text)
+        if count == 0:
+            print(f"{path} has no figure slots; rewrite it with `battery report` and re-run this")
+            continue
+        path.write_text(new)
+        print(f"added charts to {filled} of {count} figure slot(s) in {path}")
+
+
+def cmd_battery(args: argparse.Namespace) -> None:
+    files = [Path(f) / "battery.json" if Path(f).is_dir() else Path(f) for f in args.results]
+    multi = len(files) > 1
+    labels = [f.resolve().parent.name if f.name == "battery.json" else f.stem for f in files]
+    if multi and len(set(labels)) != len(labels):
+        sys.exit(f"result files need distinct names to be compared, got {labels}")
+    rows = [r for f, label in zip(files, labels) for r in load_battery(f, label)]
+    out = Path(args.out) if args.out else files[0].parent / "plots"
+    out.mkdir(parents=True, exist_ok=True)
+
+    plt = setup_mpl()
+    colors = Colors(list(dict.fromkeys(series_name(r, multi) for r in rows)))
+    RUN_INDEX.clear()
+    RUN_INDEX.update({label: i for i, label in enumerate(labels)})
+
+    by_kind: dict[str, list[dict]] = defaultdict(list)
+    for r in rows:
+        by_kind[r["kind"]].append(r)
+    unrunnable = [r for r in by_kind["not_run"] if r.get("reason")] + by_kind["unsupported"]
+    figures: list[tuple[str, Path]] = []
+    # Report figure slot -> charts for it, see fill_report.
+    slots: dict[str, list[Figure]] = defaultdict(list)
+
+    sampled_groups: dict[str, list[dict]] = defaultdict(list)
+    for r in by_kind["sampled"]:
+        sampled_groups[r["group"]].append(r)
+    for group, rs in sorted(sampled_groups.items()):
+        na = [r for r in unrunnable if r["group"] == group and r["benchmark_kind"] == "sampled"
+              and r["base"] in {x["base"] for x in rs}]
+        paths = plot_battery_bars(plt, group, rs, lambda r: r["median"], lambda r: (r["min"], r["max"]),
+                                  "median time per iteration ({unit}) · whiskers: min–max", time_unit,
+                                  colors, multi, out, slug(group), args.formats, na)
+        figures.append((group, paths[0]))
+        slots["sampled"].append(Figure(group, paths[0]))
+
+    series_by_base: dict[str, list[dict]] = defaultdict(list)
+    for r in by_kind["series"]:
+        series_by_base[r["base"]].append(r)
+    for base, rs in sorted(series_by_base.items()):
+        path = plot_battery_series(plt, base, rs, colors, multi, out, args.formats)[0]
+        figures.append((base, path))
+        slots[f"series:{base}"].append(Figure(base, path))
+
+    if by_kind["memory"]:
+        for key, title, slot in (("peak_bytes", "Peak heap", "memory-peak"),
+                                 ("steady_bytes", "Steady-state heap", "memory-steady")):
+            paths = plot_battery_bars(plt, title, by_kind["memory"], lambda r, k=key: r[k], None,
+                                      "heap ({unit})", byte_unit, colors, multi, out, slug(f"memory {key}"),
+                                      args.formats, [])
+            figures.append((title, paths[0]))
+            slots[slot].append(Figure(title, paths[0]))
+        paths = plot_memory_peak_vs_steady(plt, by_kind["memory"], colors, multi, out, args.formats)
+        figures.append(("Peak vs steady-state heap", paths[0]))
+        slots["memory-steady"].append(Figure(
+            "Peak vs steady-state heap", paths[0],
+            "Peak against steady state, per library: a long dark bar over a short light one is memory "
+            "the operation needed only while it ran."))
+
+    write_index(out, figures, files)
+    print(f"\n{len(figures)} chart(s) -> {out}")
+    if multi:
+        print("comparing experiments: charts not added to any report")
+    else:
+        fill_report(files[0].parent, slots)
+
+
 # --------------------------------------------------------------------------- CLI
 
 
@@ -571,7 +897,15 @@ def main() -> None:
     pl.add_argument("--out", help="output directory (default: <run>/plots, or results/compare/... for several runs)")
     pl.set_defaults(func=cmd_plot)
 
-    for sp in (r, pl):
+    b = sub.add_parser("battery", help="plot result files written by `cargo run --release --bin battery -- run`, "
+                                       "and add the charts to the experiment's report")
+    b.add_argument("results", nargs="*", metavar="EXPERIMENT", default=[str(RESULTS / "latest-battery")],
+                   help="battery experiment directories (or their battery.json); several to compare "
+                        "(default: results/latest-battery)")
+    b.add_argument("--out", help="output directory (default: plots/ in the first experiment)")
+    b.set_defaults(func=cmd_battery)
+
+    for sp in (r, pl, b):
         sp.add_argument("--formats", default="png", type=lambda s: s.split(","), help="comma-separated, e.g. png,svg,pdf")
 
     args = p.parse_args()

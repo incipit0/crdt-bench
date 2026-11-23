@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 382" width="900" role="img" aria-label="sync" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<title>sync</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="144.2" y="26" font-size="15" font-weight="600" fill="#262624">sync</text>
+<text x="803.0" y="26" font-size="12" fill="#262624">yrs</text>
+<rect x="787.0" y="17" width="11" height="11" rx="2" fill="#eb6834"/>
+<text x="706.0" y="26" font-size="12" fill="#262624">automerge</text>
+<rect x="690.0" y="17" width="11" height="11" rx="2" fill="#2a78d6"/>
+<line x1="144.2" y1="52" x2="144.2" y2="332.0" stroke="#e6e5e0"/>
+<text x="144.2" y="348.0" font-size="11" text-anchor="middle" fill="#6b6a63">100µs</text>
+<line x1="272.4" y1="52" x2="272.4" y2="332.0" stroke="#e6e5e0"/>
+<text x="272.4" y="348.0" font-size="11" text-anchor="middle" fill="#6b6a63">1ms</text>
+<line x1="400.7" y1="52" x2="400.7" y2="332.0" stroke="#e6e5e0"/>
+<text x="400.7" y="348.0" font-size="11" text-anchor="middle" fill="#6b6a63">10ms</text>
+<line x1="528.9" y1="52" x2="528.9" y2="332.0" stroke="#e6e5e0"/>
+<text x="528.9" y="348.0" font-size="11" text-anchor="middle" fill="#6b6a63">100ms</text>
+<line x1="657.2" y1="52" x2="657.2" y2="332.0" stroke="#e6e5e0"/>
+<text x="657.2" y="348.0" font-size="11" text-anchor="middle" fill="#6b6a63">1s</text>
+<line x1="785.4" y1="52" x2="785.4" y2="332.0" stroke="#e6e5e0"/>
+<text x="785.4" y="348.0" font-size="11" text-anchor="middle" fill="#6b6a63">10s</text>
+<line x1="144.2" y1="52" x2="144.2" y2="332.0" stroke="#9a998f"/>
+<text x="484.1" y="370.0" font-size="12" text-anchor="middle" fill="#6b6a63">median time per iteration · whiskers: min–max · log scale</text>
+<text x="136.2" y="72.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">every_change/100</text>
+<g><title>automerge · every_change/100: median 5.53ms, min 5.50ms, max 5.60ms</title>
+<rect x="144.2" y="58.0" width="679.8" height="14.0" fill="transparent"/>
+<path d="M144.2,59.0H364.7Q367.7,59.0 367.7,62.0V68.0Q367.7,71.0 364.7,71.0H144.2Z" fill="#2a78d6"/>
+<text x="373.4" y="65.0" font-size="10.5" dominant-baseline="middle" fill="#262624">5.53ms</text>
+</g>
+<text x="136.2" y="112.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">every_change/1000</text>
+<g><title>automerge · every_change/1000: median 192.48ms, min 191.85ms, max 194.03ms</title>
+<rect x="144.2" y="98.0" width="679.8" height="14.0" fill="transparent"/>
+<path d="M144.2,99.0H562.4Q565.4,99.0 565.4,102.0V108.0Q565.4,111.0 562.4,111.0H144.2Z" fill="#2a78d6"/>
+<text x="570.8" y="105.0" font-size="10.5" dominant-baseline="middle" fill="#262624">192ms</text>
+</g>
+<text x="136.2" y="152.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">every_change/10000</text>
+<g><title>automerge · every_change/10000: median 15.26s, min 15.17s, max 15.35s</title>
+<rect x="144.2" y="138.0" width="679.8" height="14.0" fill="transparent"/>
+<path d="M144.2,139.0H806.0Q809.0,139.0 809.0,142.0V148.0Q809.0,151.0 806.0,151.0H144.2Z" fill="#2a78d6"/>
+<text x="814.3" y="145.0" font-size="10.5" dominant-baseline="middle" fill="#262624">15.3s</text>
+</g>
+<text x="136.2" y="192.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">full_many_tx</text>
+<g><title>automerge · full_many_tx: median 24.17ms, min 24.07ms, max 24.81ms</title>
+<rect x="144.2" y="178.0" width="679.8" height="14.0" fill="transparent"/>
+<path d="M144.2,179.0H446.8Q449.8,179.0 449.8,182.0V188.0Q449.8,191.0 446.8,191.0H144.2Z" fill="#2a78d6"/>
+<text x="456.3" y="185.0" font-size="10.5" dominant-baseline="middle" fill="#262624">24.2ms</text>
+<path d="M449.6,185.0H451.3M449.6,182.0V188.0M451.3,182.0V188.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="136.2" y="232.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">full_one_tx</text>
+<g><title>automerge · full_one_tx: median 6.68ms, min 6.64ms, max 6.76ms</title>
+<rect x="144.2" y="218.0" width="679.8" height="14.0" fill="transparent"/>
+<path d="M144.2,219.0H375.2Q378.2,219.0 378.2,222.0V228.0Q378.2,231.0 375.2,231.0H144.2Z" fill="#2a78d6"/>
+<text x="383.9" y="225.0" font-size="10.5" dominant-baseline="middle" fill="#262624">6.68ms</text>
+<path d="M377.8,225.0H378.9M377.8,222.0V228.0M378.9,222.0V228.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="136.2" y="272.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">full_one_tx/100</text>
+<g><title>automerge · full_one_tx/100: median 104.29µs, min 102.59µs, max 111.63µs</title>
+<rect x="144.2" y="258.0" width="679.8" height="14.0" fill="transparent"/>
+<path d="M144.2,259.0H145.4Q146.5,259.0 146.5,260.2V269.8Q146.5,271.0 145.4,271.0H144.2Z" fill="#2a78d6"/>
+<text x="155.3" y="265.0" font-size="10.5" dominant-baseline="middle" fill="#262624">104µs</text>
+<path d="M145.6,265.0H150.3M145.6,262.0V268.0M150.3,262.0V268.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="136.2" y="312.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">full_one_tx/1000</text>
+<g><title>automerge · full_one_tx/1000: median 739.44µs, min 736.88µs, max 742.05µs</title>
+<rect x="144.2" y="298.0" width="679.8" height="14.0" fill="transparent"/>
+<path d="M144.2,299.0H252.6Q255.6,299.0 255.6,302.0V308.0Q255.6,311.0 252.6,311.0H144.2Z" fill="#2a78d6"/>
+<text x="260.8" y="305.0" font-size="10.5" dominant-baseline="middle" fill="#262624">739µs</text>
+</g>
+</svg>

@@ -1,0 +1,14 @@
+[package]
+name = "typing-bulk-probe"
+version = "0.1.0"
+edition = "2024"
+
+# Times each phase of one step of typing/single_char_100_bulk_incremental_load
+# through crdt-bench's own adapters.
+[dependencies]
+crdt-bench = { path = "../../../.." }
+
+[profile.release]
+debug = 1
+
+[workspace]

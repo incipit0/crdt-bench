@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 182" width="900" role="img" aria-label="edit_trace" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<title>edit_trace</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="158" y="26" font-size="15" font-weight="600" fill="#262624">edit_trace</text>
+<text x="803.0" y="26" font-size="12" fill="#262624">yrs</text>
+<rect x="787.0" y="17" width="11" height="11" rx="2" fill="#eb6834"/>
+<text x="706.0" y="26" font-size="12" fill="#262624">automerge</text>
+<rect x="690.0" y="17" width="11" height="11" rx="2" fill="#2a78d6"/>
+<line x1="158.0" y1="52" x2="158.0" y2="132.0" stroke="#e6e5e0"/>
+<text x="158.0" y="148.0" font-size="11" text-anchor="middle" fill="#6b6a63">0</text>
+<line x1="324.5" y1="52" x2="324.5" y2="132.0" stroke="#e6e5e0"/>
+<text x="324.5" y="148.0" font-size="11" text-anchor="middle" fill="#6b6a63">1s</text>
+<line x1="491.0" y1="52" x2="491.0" y2="132.0" stroke="#e6e5e0"/>
+<text x="491.0" y="148.0" font-size="11" text-anchor="middle" fill="#6b6a63">2s</text>
+<line x1="657.5" y1="52" x2="657.5" y2="132.0" stroke="#e6e5e0"/>
+<text x="657.5" y="148.0" font-size="11" text-anchor="middle" fill="#6b6a63">3s</text>
+<line x1="824.0" y1="52" x2="824.0" y2="132.0" stroke="#e6e5e0"/>
+<text x="824.0" y="148.0" font-size="11" text-anchor="middle" fill="#6b6a63">4s</text>
+<line x1="158" y1="52" x2="158" y2="132.0" stroke="#9a998f"/>
+<text x="491.0" y="170.0" font-size="12" text-anchor="middle" fill="#6b6a63">median time per iteration · whiskers: min–max</text>
+<text x="150.0" y="72.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">edit_trace_many_tx</text>
+<g><title>automerge · edit_trace_many_tx: median 3.71s, min 3.62s, max 3.77s</title>
+<rect x="158" y="58.0" width="666.0" height="14.0" fill="transparent"/>
+<path d="M158,59.0H773.5Q776.5,59.0 776.5,62.0V68.0Q776.5,71.0 773.5,71.0H158Z" fill="#2a78d6"/>
+<text x="790.0" y="65.0" font-size="10.5" dominant-baseline="middle" fill="#262624">3.71s</text>
+<path d="M761.2,65.0H785.0M761.2,62.0V68.0M785.0,62.0V68.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="150.0" y="112.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">edit_trace_single_tx</text>
+<g><title>automerge · edit_trace_single_tx: median 2.95s, min 2.86s, max 2.97s</title>
+<rect x="158" y="98.0" width="666.0" height="14.0" fill="transparent"/>
+<path d="M158,99.0H645.6Q648.6,99.0 648.6,102.0V108.0Q648.6,111.0 645.6,111.0H158Z" fill="#2a78d6"/>
+<text x="656.7" y="105.0" font-size="10.5" dominant-baseline="middle" fill="#262624">2.95s</text>
+<path d="M633.4,105.0H651.7M633.4,102.0V108.0M651.7,102.0V108.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+</svg>

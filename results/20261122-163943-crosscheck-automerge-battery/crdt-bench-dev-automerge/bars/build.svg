@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 302" width="900" role="img" aria-label="build" font-family="system-ui,-apple-system,'Segoe UI',sans-serif">
+<title>build</title>
+<rect width="100%" height="100%" fill="white"/>
+<text x="171.8" y="26" font-size="15" font-weight="600" fill="#262624">build</text>
+<text x="803.0" y="26" font-size="12" fill="#262624">yrs</text>
+<rect x="787.0" y="17" width="11" height="11" rx="2" fill="#eb6834"/>
+<text x="706.0" y="26" font-size="12" fill="#262624">automerge</text>
+<rect x="690.0" y="17" width="11" height="11" rx="2" fill="#2a78d6"/>
+<line x1="171.8" y1="52" x2="171.8" y2="252.0" stroke="#e6e5e0"/>
+<text x="171.8" y="268.0" font-size="11" text-anchor="middle" fill="#6b6a63">10ms</text>
+<line x1="413.4" y1="52" x2="413.4" y2="252.0" stroke="#e6e5e0"/>
+<text x="413.4" y="268.0" font-size="11" text-anchor="middle" fill="#6b6a63">100ms</text>
+<line x1="655.1" y1="52" x2="655.1" y2="252.0" stroke="#e6e5e0"/>
+<text x="655.1" y="268.0" font-size="11" text-anchor="middle" fill="#6b6a63">1s</text>
+<line x1="171.8" y1="52" x2="171.8" y2="252.0" stroke="#9a998f"/>
+<text x="497.9" y="290.0" font-size="12" text-anchor="middle" fill="#6b6a63">median time per iteration · whiskers: min–max · log scale</text>
+<text x="163.8" y="72.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">build_big_paste</text>
+<g><title>automerge · build_big_paste: median 45.07ms, min 44.85ms, max 45.90ms</title>
+<rect x="171.8" y="58.0" width="652.2" height="14.0" fill="transparent"/>
+<path d="M171.8,59.0H326.8Q329.8,59.0 329.8,62.0V68.0Q329.8,71.0 326.8,71.0H171.8Z" fill="#2a78d6"/>
+<text x="336.7" y="65.0" font-size="10.5" dominant-baseline="middle" fill="#262624">45.1ms</text>
+<path d="M329.3,65.0H331.7M329.3,62.0V68.0M331.7,62.0V68.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="163.8" y="112.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">build_deep_history_doc</text>
+<g><title>automerge · build_deep_history_doc: median 2.97s, min 2.94s, max 3.16s</title>
+<rect x="171.8" y="98.0" width="652.2" height="14.0" fill="transparent"/>
+<path d="M171.8,99.0H766.4Q769.4,99.0 769.4,102.0V108.0Q769.4,111.0 766.4,111.0H171.8Z" fill="#2a78d6"/>
+<text x="780.9" y="105.0" font-size="10.5" dominant-baseline="middle" fill="#262624">2.97s</text>
+<path d="M768.3,105.0H775.9M768.3,102.0V108.0M775.9,102.0V108.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="163.8" y="152.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">build_maps_in_maps_doc</text>
+<g><title>automerge · build_maps_in_maps_doc: median 791.78ms, min 787.15ms, max 798.42ms</title>
+<rect x="171.8" y="138.0" width="652.2" height="14.0" fill="transparent"/>
+<path d="M171.8,139.0H627.6Q630.6,139.0 630.6,142.0V148.0Q630.6,151.0 627.6,151.0H171.8Z" fill="#2a78d6"/>
+<text x="636.5" y="145.0" font-size="10.5" dominant-baseline="middle" fill="#262624">792ms</text>
+<path d="M630.0,145.0H631.5M630.0,142.0V148.0M631.5,142.0V148.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="163.8" y="192.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">build_text_splice_100</text>
+<g><title>automerge · build_text_splice_100: median 51.34ms, min 51.16ms, max 52.14ms</title>
+<rect x="171.8" y="178.0" width="652.2" height="14.0" fill="transparent"/>
+<path d="M171.8,179.0H340.5Q343.5,179.0 343.5,182.0V188.0Q343.5,191.0 340.5,191.0H171.8Z" fill="#2a78d6"/>
+<text x="350.1" y="185.0" font-size="10.5" dominant-baseline="middle" fill="#262624">51.3ms</text>
+<path d="M343.1,185.0H345.1M343.1,182.0V188.0M345.1,182.0V188.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+<text x="163.8" y="232.0" font-size="11.5" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" text-anchor="end" dominant-baseline="middle" fill="#262624">build_typing</text>
+<g><title>automerge · build_typing: median 999.22ms, min 994.43ms, max 1.01s</title>
+<rect x="171.8" y="218.0" width="652.2" height="14.0" fill="transparent"/>
+<path d="M171.8,219.0H652.0Q655.0,219.0 655.0,222.0V228.0Q655.0,231.0 652.0,231.0H171.8Z" fill="#2a78d6"/>
+<text x="661.3" y="225.0" font-size="10.5" dominant-baseline="middle" fill="#262624">999ms</text>
+<path d="M654.5,225.0H656.3M654.5,222.0V228.0M656.3,222.0V228.0" stroke="#262624" stroke-width="1.25" fill="none"/>
+</g>
+</svg>

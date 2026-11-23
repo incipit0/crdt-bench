@@ -1,7 +1,7 @@
 use std::{cell::RefCell, rc::Rc};
 
 use yrs::{
-    Doc, GetString, Options, ReadTxn, StateVector, Subscription, Text, TextRef, Transact,
+    Doc, GetString, Options, ReadTxn, StateVector, Text, TextRef, Transact,
     Transaction, TransactionAcqError, TransactionMut, Update, UpdateEvent,
     updates::{decoder::Decode, encoder::Encode},
 };
@@ -112,11 +112,14 @@ impl BenchYrs {
         }
     }
 
-    pub fn observe_update_v1<F>(&self, f: F) -> Result<Subscription, TransactionAcqError>
+    /// yrs 0.28: observers are registered under a key (unregister with
+    /// `unobserve_update_v1(key)`) instead of returning a `Subscription`.
+    pub fn observe_update_v1<K, F>(&self, key: K, f: F) -> Result<(), TransactionAcqError>
     where
-        F: Fn(&TransactionMut<'_>, &UpdateEvent) + 'static,
+        K: Into<yrs::Origin>,
+        F: FnMut(&TransactionMut<'_>, &UpdateEvent) + 'static,
     {
-        self.doc.observe_update_v1(f)
+        self.doc.observe_update_v1(key, f)
     }
 
     pub fn checkpoint(&self) -> (Vec<u8>, Vec<u8>) {

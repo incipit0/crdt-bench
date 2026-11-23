@@ -1,0 +1,78 @@
+--- a/src/change_graph.rs	2006-07-24 02:21:28.000000000 +0100
++++ b/src/change_graph.rs	2026-11-23 11:34:56.432165989 +0000
+@@ -901,6 +901,7 @@
+         // Reconstruction has the verified changes, so use their exact lengths.
+         graph.num_ops = changes.iter().map(|change| change.len() as u64).collect();
+ 
++        if std::env::var_os("RIGHTSIZE").is_some() { graph.hashes.reserve_exact(changes.len()); }
+         for c in changes {
+             let hash = c.hash();
+             let idx = graph.hashes.len();
+@@ -920,6 +921,13 @@
+ 
+         graph.cache_fragments();
+ 
++        if std::env::var_os("RIGHTSIZE").is_some() {
++            graph.actors.shrink_to_fit();
++            graph.seq.shrink_to_fit();
++            graph.max_ops.shrink_to_fit();
++            graph.edges.shrink_to_fit();
++            for v in graph.seq_index.iter_mut() { v.shrink_to_fit(); }
++        }
+         graph
+     }
+ 
+@@ -1796,3 +1804,32 @@
+     pub(super) const EXTRA_META_COL_SPEC: ColumnSpec = ColumnSpec::new_value_metadata(EXTRA_COL_ID);
+     pub(super) const EXTRA_VAL_COL_SPEC:  ColumnSpec = ColumnSpec::new_value(EXTRA_COL_ID);
+ }
++
++/// PROBE PATCH: per-field heap report. `m` runs a closure that clones and leaks
++/// a value and returns the bytes it allocated.
++pub type MemFn<'a> = &'a dyn Fn(&mut dyn FnMut()) -> isize;
++impl ChangeGraph {
++    pub(crate) fn mem_report(&self, m: MemFn<'_>) -> Vec<(&'static str, usize, isize)> {
++        fn v<T>(x: &Vec<T>) -> isize { (x.capacity() * std::mem::size_of::<T>()) as isize }
++        let mut out = vec![
++            ("hashes: Vec<ChangeHash>", self.hashes.len(), v(&self.hashes)),
++            ("nodes_by_hash: HashMap<ChangeHash,NodeIdx>", self.nodes_by_hash.len(), m(&mut || std::mem::forget(self.nodes_by_hash.clone()))),
++            ("edges: Vec<Edge>", self.edges.len(), v(&self.edges)),
++            ("parents: Vec<Option<EdgeIdx>>", self.parents.len(), v(&self.parents)),
++            ("actors: Vec<ActorIdx>", self.actors.len(), v(&self.actors)),
++            ("seq: Vec<u32>", self.seq.len(), v(&self.seq)),
++            ("max_ops: Vec<u32>", self.max_ops.len(), v(&self.max_ops)),
++            ("seq_index: Vec<Vec<NodeIdx>>", self.seq_index.len(), v(&self.seq_index) + self.seq_index.iter().map(v).sum::<isize>()),
++            ("clock_cache: HashMap<NodeIdx,SeqClock>", self.clock_cache.len(), m(&mut || std::mem::forget(self.clock_cache.clone()))),
++            ("heads: BTreeSet<ChangeHash>", self.heads.len(), m(&mut || std::mem::forget(self.heads.clone()))),
++            ("fragments: Vec<FragmentNode>", self.fragments.len(), m(&mut || std::mem::forget(self.fragments.clone()))),
++            ("num_ops: hexane Column<u64>", 0, m(&mut || std::mem::forget(self.num_ops.clone()))),
++            ("timestamps: hexane DeltaColumn<i64>", 0, m(&mut || std::mem::forget(self.timestamps.clone()))),
++            ("messages: hexane Column<Option<String>>", 0, m(&mut || std::mem::forget(self.messages.clone()))),
++            ("extra_bytes_meta: hexane PrefixColumn", 0, m(&mut || std::mem::forget(self.extra_bytes_meta.clone()))),
++            ("extra_bytes_raw: Vec<u8>", self.extra_bytes_raw.len(), v(&self.extra_bytes_raw)),
++        ];
++        out.sort_by_key(|x| -x.2);
++        out
++    }
++}
+--- a/src/automerge.rs	2006-07-24 02:21:28.000000000 +0100
++++ b/src/automerge.rs	2026-11-23 11:31:26.413847353 +0000
+@@ -2330,3 +2330,18 @@
+     seq: u64,
+     clock: Clock,
+ }
++
++/// PROBE PATCH
++impl Automerge {
++    pub fn probe_graph_mem(&self, m: crate::change_graph::MemFn<'_>) -> Vec<(&'static str, usize, isize)> {
++        self.change_graph.mem_report(m)
++    }
++    pub fn probe_split(&self, m: crate::change_graph::MemFn<'_>) -> Vec<(&'static str, isize)> {
++        vec![
++            ("ops (OpSet)", m(&mut || std::mem::forget(self.ops.clone()))),
++            ("change_graph (clone)", m(&mut || std::mem::forget(self.change_graph.clone()))),
++            ("authors", m(&mut || std::mem::forget(self.authors.clone()))),
++            ("deps", m(&mut || std::mem::forget(self.deps.clone()))),
++        ]
++    }
++}

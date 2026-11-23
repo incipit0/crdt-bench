@@ -1,0 +1,2663 @@
+{
+ "meta": {
+  "theirs_commit": "09b19d5080a86548c72721a82747bebe272c6c31",
+  "theirs_rustc": "rustc 1.90.0 (1159e78c4 2025-09-14)",
+  "ours_rustc": null,
+  "sample_count": 10
+ },
+ "rows": [
+  {
+   "base": "apply/single_char_incremental_load",
+   "group": "apply",
+   "kind": "series",
+   "metric": "total",
+   "unit": "ns/step",
+   "theirs": 33854064365,
+   "ours": 36363524685,
+   "ours12": 27726089135,
+   "ratio": 1.0741258211405307,
+   "version": 1.3115273671646877,
+   "overlap": null
+  },
+  {
+   "base": "apply/single_char_incremental_load",
+   "group": "apply",
+   "kind": "series",
+   "metric": "step median",
+   "unit": "ns/step",
+   "theirs": 33739118,
+   "ours": 36549547,
+   "ours12": 27773104,
+   "ratio": 1.0832988283807539,
+   "version": 1.3160051177570933,
+   "overlap": null
+  },
+  {
+   "base": "build/build_big_paste",
+   "group": "build",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 44206128,
+   "ours": 45073198,
+   "ours12": 45505162,
+   "ratio": 1.0196142489566153,
+   "version": 0.9905073626592078,
+   "overlap": false
+  },
+  {
+   "base": "build/build_deep_history_doc",
+   "group": "build",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 2413601367,
+   "ours": 2970426809,
+   "ours12": 2861218115,
+   "ratio": 1.230703151569768,
+   "version": 1.0381686014874123,
+   "overlap": false
+  },
+  {
+   "base": "build/build_maps_in_maps_doc",
+   "group": "build",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 637947829,
+   "ours": 791784888,
+   "ours12": 776836250,
+   "ratio": 1.2411436359006718,
+   "version": 1.0192429717331033,
+   "overlap": false
+  },
+  {
+   "base": "build/build_text_splice_100",
+   "group": "build",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 47046424,
+   "ours": 51335305,
+   "ours12": 51815665,
+   "ratio": 1.091162741720816,
+   "version": 0.9907294444643333,
+   "overlap": false
+  },
+  {
+   "base": "build/build_typing",
+   "group": "build",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 818896197,
+   "ours": 999221612,
+   "ours12": 940911205,
+   "ratio": 1.2202054615232265,
+   "version": 1.0619722739936974,
+   "overlap": false
+  },
+  {
+   "base": "edit_trace/edit_trace_many_tx",
+   "group": "edit_trace",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 3626824006,
+   "ours": 4431835204,
+   "ours12": 4255193553,
+   "ratio": 1.2219603699182089,
+   "version": 1.0415120132139382,
+   "overlap": false
+  },
+  {
+   "base": "edit_trace/edit_trace_single_tx",
+   "group": "edit_trace",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 2549390554,
+   "ours": 3471328218,
+   "ours12": 3331224103,
+   "ratio": 1.3616306111095757,
+   "version": 1.0420578474062512,
+   "overlap": false
+  },
+  {
+   "base": "egwalker_paper/clone/A1",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 475867,
+   "ours": 474404,
+   "ours12": 542857,
+   "ratio": 0.9969256115679381,
+   "version": 0.8739023352374566,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/clone/A2",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 691441,
+   "ours": 694091,
+   "ours12": 714552,
+   "ratio": 1.0038325757367585,
+   "version": 0.9713652750254705,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/clone/C1",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 3844335,
+   "ours": 3871079,
+   "ours12": 4027211,
+   "ratio": 1.0069567298375401,
+   "version": 0.961230737599793,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/clone/C2",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 5880396,
+   "ours": 5958797,
+   "ours12": 6149697,
+   "ratio": 1.0133326054911949,
+   "version": 0.9689578201982959,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/clone/S1",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 200004,
+   "ours": 195931,
+   "ours12": 231177,
+   "ratio": 0.9796354072918542,
+   "version": 0.847536735920961,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/clone/S3",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 354412,
+   "ours": 360804,
+   "ours12": 353463,
+   "ratio": 1.0180355066984188,
+   "version": 1.0207687933390481,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/get_text/A1",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 1026627,
+   "ours": 1061928,
+   "ours12": 1004285,
+   "ratio": 1.03438541943666,
+   "version": 1.057397053625216,
+   "overlap": false
+  },
+  {
+   "base": "egwalker_paper/get_text/A2",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 5902252,
+   "ours": 6061307,
+   "ours12": 5612279,
+   "ratio": 1.0269481885897112,
+   "version": 1.0800081392959973,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/get_text/C1",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 13236070,
+   "ours": 13189617,
+   "ours12": 12956046,
+   "ratio": 0.9964904235169503,
+   "version": 1.0180279538988979,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/get_text/C2",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 12675262,
+   "ours": 12854526,
+   "ours12": 12656325,
+   "ratio": 1.0141428240299886,
+   "version": 1.0156602331245443,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/get_text/S1",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 8048162,
+   "ours": 8042067,
+   "ours12": 7493436,
+   "ratio": 0.9992426842302627,
+   "version": 1.073214877660929,
+   "overlap": true
+  },
+  {
+   "base": "egwalker_paper/get_text/S3",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 3220758,
+   "ours": 2988170,
+   "ours12": 2857777,
+   "ratio": 0.9277847016137195,
+   "version": 1.0456274229934666,
+   "overlap": false
+  },
+  {
+   "base": "egwalker_paper/load/A1",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 428200451,
+   "ours": 448341821,
+   "ours12": 428933189,
+   "ratio": 1.0470372461144373,
+   "version": 1.0452486132986085,
+   "overlap": false
+  },
+  {
+   "base": "egwalker_paper/load/A2",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 315105112,
+   "ours": 329587758,
+   "ours12": 314957967,
+   "ratio": 1.0459613171873898,
+   "version": 1.0464499791491224,
+   "overlap": false
+  },
+  {
+   "base": "egwalker_paper/load/C1",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 477066393,
+   "ours": 501513627,
+   "ours12": 484447965,
+   "ratio": 1.0512449301789322,
+   "version": 1.035227027943032,
+   "overlap": false
+  },
+  {
+   "base": "egwalker_paper/load/C2",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 530806476,
+   "ours": 569857429,
+   "ours12": 547840053,
+   "ratio": 1.073569096771909,
+   "version": 1.040189423682025,
+   "overlap": false
+  },
+  {
+   "base": "egwalker_paper/load/S1",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 431918506,
+   "ours": 448601386,
+   "ours12": 440081646,
+   "ratio": 1.0386250641457813,
+   "version": 1.0193594531320218,
+   "overlap": false
+  },
+  {
+   "base": "egwalker_paper/load/S3",
+   "group": "egwalker_paper",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 1393760720,
+   "ours": 1476588741,
+   "ours12": 1399136295,
+   "ratio": 1.0594277194151376,
+   "version": 1.0553573274289192,
+   "overlap": false
+  },
+  {
+   "base": "length/list_len_now",
+   "group": "length",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 430030,
+   "ours": 420286,
+   "ours12": 513642,
+   "ratio": 0.9773411157361115,
+   "version": 0.8182469502104579,
+   "overlap": true
+  },
+  {
+   "base": "length/map_len_now",
+   "group": "length",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 1516445,
+   "ours": 1279340,
+   "ours12": 1329997,
+   "ratio": 0.8436441809627121,
+   "version": 0.9619119441622801,
+   "overlap": false
+  },
+  {
+   "base": "length/text_len_now",
+   "group": "length",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 210,
+   "ours": 250,
+   "ours12": 240,
+   "ratio": 1.1904761904761905,
+   "version": 1.0416666666666667,
+   "overlap": true
+  },
+  {
+   "base": "list/list_cursor_now",
+   "group": "list",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 7093,
+   "ours": 9408,
+   "ours12": 8846,
+   "ratio": 1.3263781192725221,
+   "version": 1.0635315396789509,
+   "overlap": true
+  },
+  {
+   "base": "list/list_splice_index_now",
+   "group": "list",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 15584,
+   "ours": 19502,
+   "ours12": 19883,
+   "ratio": 1.251411704312115,
+   "version": 0.9808379017250918,
+   "overlap": true
+  },
+  {
+   "base": "list/list_update_now",
+   "group": "list",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 19292,
+   "ours": 24592,
+   "ours12": 25052,
+   "ratio": 1.2747252747252746,
+   "version": 0.9816381925594763,
+   "overlap": true
+  },
+  {
+   "base": "load_save/load_actors/load/10",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 29270,
+   "ours": 32626,
+   "ours12": 30102,
+   "ratio": 1.11465664502904,
+   "version": 1.0838482492857617,
+   "overlap": true
+  },
+  {
+   "base": "load_save/load_actors/load/100",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 213004,
+   "ours": 198376,
+   "ours12": 192254,
+   "ratio": 0.9313252333289516,
+   "version": 1.0318432906467485,
+   "overlap": false
+  },
+  {
+   "base": "load_save/load_actors/load/1000",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 3499856,
+   "ours": 2601312,
+   "ours12": 2540032,
+   "ratio": 0.7432625799461463,
+   "version": 1.0241256803063898,
+   "overlap": false
+  },
+  {
+   "base": "load_save/load_big_paste",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 35840887,
+   "ours": 38250731,
+   "ours12": 37501442,
+   "ratio": 1.0672372868450493,
+   "version": 1.0199802716919526,
+   "overlap": false
+  },
+  {
+   "base": "load_save/load_big_random",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 69410671,
+   "ours": 72385409,
+   "ours12": 70204366,
+   "ratio": 1.0428570702046664,
+   "version": 1.031067056427801,
+   "overlap": false
+  },
+  {
+   "base": "load_save/load_deep_history/1000",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 225071769,
+   "ours": 237584920,
+   "ours12": 230794014,
+   "ratio": 1.055596270716653,
+   "version": 1.0294240993616064,
+   "overlap": false
+  },
+  {
+   "base": "load_save/load_maps_in_maps",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 51417791,
+   "ours": 53077312,
+   "ours12": 53674482,
+   "ratio": 1.032275229404546,
+   "version": 0.988874228911981,
+   "overlap": false
+  },
+  {
+   "base": "load_save/load_text_splice_100",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 54091591,
+   "ours": 55685347,
+   "ours12": 53886217,
+   "ratio": 1.0294640251938605,
+   "version": 1.0333875729298274,
+   "overlap": false
+  },
+  {
+   "base": "load_save/load_typing",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 150110552,
+   "ours": 159976824,
+   "ours12": 158679935,
+   "ratio": 1.065726705208572,
+   "version": 1.0081729867106386,
+   "overlap": false
+  },
+  {
+   "base": "load_save/save_big_paste",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 1676699,
+   "ours": 1933861,
+   "ours12": 1987271,
+   "ratio": 1.1533739806608103,
+   "version": 0.9731239473629918,
+   "overlap": false
+  },
+  {
+   "base": "load_save/save_big_random",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 12069658,
+   "ours": 13752439,
+   "ours12": 13639262,
+   "ratio": 1.1394224260538286,
+   "version": 1.008297882979299,
+   "overlap": false
+  },
+  {
+   "base": "load_save/save_deep_history/1000",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 13988011,
+   "ours": 14460245,
+   "ours12": 14338594,
+   "ratio": 1.0337599105405335,
+   "version": 1.0084841651838388,
+   "overlap": false
+  },
+  {
+   "base": "load_save/save_maps_in_maps",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 10324714,
+   "ours": 11257042,
+   "ours12": 11515057,
+   "ratio": 1.0903006126852521,
+   "version": 0.9775932502982834,
+   "overlap": false
+  },
+  {
+   "base": "load_save/save_text_splice_100",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 2049682,
+   "ours": 2291800,
+   "ours12": 2281092,
+   "ratio": 1.1181246651919663,
+   "version": 1.0046942429327708,
+   "overlap": false
+  },
+  {
+   "base": "load_save/save_typing",
+   "group": "load_save",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 4974834,
+   "ours": 5697231,
+   "ours12": 5683841,
+   "ratio": 1.1452102723427555,
+   "version": 1.0023558012970455,
+   "overlap": false
+  },
+  {
+   "base": "map/apply/decreasing_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 72011,
+   "ours": 90817,
+   "ours12": 92675,
+   "ratio": 1.2611545458332756,
+   "version": 0.9799514432155382,
+   "overlap": false
+  },
+  {
+   "base": "map/apply/decreasing_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 601000,
+   "ours": 753904,
+   "ours12": 757108,
+   "ratio": 1.2544159733777038,
+   "version": 0.9957681070600232,
+   "overlap": false
+  },
+  {
+   "base": "map/apply/decreasing_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 5972730,
+   "ours": 7465844,
+   "ours12": 7207160,
+   "ratio": 1.2499885312076722,
+   "version": 1.0358926400967927,
+   "overlap": false
+  },
+  {
+   "base": "map/apply/increasing_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 73870,
+   "ours": 94043,
+   "ours12": 94338,
+   "ratio": 1.2730878570461621,
+   "version": 0.9968729462146749,
+   "overlap": false
+  },
+  {
+   "base": "map/apply/increasing_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 605784,
+   "ours": 754395,
+   "ours12": 768805,
+   "ratio": 1.2453201141000754,
+   "version": 0.9812566255422376,
+   "overlap": false
+  },
+  {
+   "base": "map/apply/increasing_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 5965352,
+   "ours": 7288794,
+   "ours12": 7183199,
+   "ratio": 1.2218548042093744,
+   "version": 1.0147002749053728,
+   "overlap": false
+  },
+  {
+   "base": "map/apply/repeated_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 66816,
+   "ours": 88523,
+   "ours12": 86899,
+   "ratio": 1.3248772749042146,
+   "version": 1.0186883623516956,
+   "overlap": false
+  },
+  {
+   "base": "map/apply/repeated_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 535240,
+   "ours": 702667,
+   "ours12": 699002,
+   "ratio": 1.312807338763919,
+   "version": 1.0052431895759955,
+   "overlap": false
+  },
+  {
+   "base": "map/apply/repeated_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 5335964,
+   "ours": 6958288,
+   "ours12": 6919855,
+   "ratio": 1.3040357843493697,
+   "version": 1.0055540181116511,
+   "overlap": false
+  },
+  {
+   "base": "map/decreasing_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 488125,
+   "ours": 615652,
+   "ours12": 594675,
+   "ratio": 1.2612588988476312,
+   "version": 1.0352747298944802,
+   "overlap": false
+  },
+  {
+   "base": "map/decreasing_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 4937262,
+   "ours": 6075755,
+   "ours12": 6158445,
+   "ratio": 1.230591975876508,
+   "version": 0.986572909232769,
+   "overlap": false
+  },
+  {
+   "base": "map/decreasing_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 49574560,
+   "ours": 61029074,
+   "ours12": 59229659,
+   "ratio": 1.231056291775459,
+   "version": 1.030380303219372,
+   "overlap": false
+  },
+  {
+   "base": "map/deep_history/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 2129488,
+   "ours": 2635476,
+   "ours12": 2537768,
+   "ratio": 1.2376101673266062,
+   "version": 1.0385015493930099,
+   "overlap": false
+  },
+  {
+   "base": "map/deep_history/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 21601033,
+   "ours": 26542122,
+   "ours12": 25544443,
+   "ratio": 1.2287431809395413,
+   "version": 1.039056596379886,
+   "overlap": false
+  },
+  {
+   "base": "map/deep_history/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 230004172,
+   "ours": 283579022,
+   "ours12": 268304944,
+   "ratio": 1.2329299052888485,
+   "version": 1.0569280527309255,
+   "overlap": false
+  },
+  {
+   "base": "map/increasing_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 658643,
+   "ours": 852882,
+   "ours12": 822255,
+   "ratio": 1.2949078635922646,
+   "version": 1.037247569184742,
+   "overlap": false
+  },
+  {
+   "base": "map/increasing_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 8545775,
+   "ours": 11422471,
+   "ours12": 11507878,
+   "ratio": 1.336622014972311,
+   "version": 0.9925783884743998,
+   "overlap": false
+  },
+  {
+   "base": "map/increasing_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 90201912,
+   "ours": 116844456,
+   "ours12": 114952456,
+   "ratio": 1.2953656237353373,
+   "version": 1.0164589784841134,
+   "overlap": false
+  },
+  {
+   "base": "map/load/decreasing_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 72468,
+   "ours": 86008,
+   "ours12": 83483,
+   "ratio": 1.1868410884804328,
+   "version": 1.0302456787609453,
+   "overlap": false
+  },
+  {
+   "base": "map/load/decreasing_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 594472,
+   "ours": 662752,
+   "ours12": 654569,
+   "ratio": 1.1148582271326488,
+   "version": 1.0125013558540048,
+   "overlap": false
+  },
+  {
+   "base": "map/load/decreasing_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 5706175,
+   "ours": 6326249,
+   "ours12": 6014156,
+   "ratio": 1.1086671894920854,
+   "version": 1.0518930669573585,
+   "overlap": false
+  },
+  {
+   "base": "map/load/increasing_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 70108,
+   "ours": 84410,
+   "ours12": 82867,
+   "ratio": 1.2039995435613624,
+   "version": 1.0186201986315422,
+   "overlap": false
+  },
+  {
+   "base": "map/load/increasing_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 602062,
+   "ours": 666233,
+   "ours12": 649704,
+   "ratio": 1.1065853682843296,
+   "version": 1.025440816125497,
+   "overlap": false
+  },
+  {
+   "base": "map/load/increasing_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 5767356,
+   "ours": 6455113,
+   "ours12": 6105254,
+   "ratio": 1.1192499648018954,
+   "version": 1.0573045773361764,
+   "overlap": false
+  },
+  {
+   "base": "map/load/repeated_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 66707,
+   "ours": 76174,
+   "ours12": 74721,
+   "ratio": 1.1419191389209529,
+   "version": 1.0194456712303102,
+   "overlap": false
+  },
+  {
+   "base": "map/load/repeated_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 526734,
+   "ours": 587463,
+   "ours12": 572984,
+   "ratio": 1.1152934877945984,
+   "version": 1.025269466512154,
+   "overlap": false
+  },
+  {
+   "base": "map/load/repeated_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 5068191,
+   "ours": 5603679,
+   "ours12": 5459302,
+   "ratio": 1.1056566336982958,
+   "version": 1.0264460548253238,
+   "overlap": false
+  },
+  {
+   "base": "map/repeated_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 773787,
+   "ours": 956122,
+   "ours12": 934594,
+   "ratio": 1.2356397820071932,
+   "version": 1.0230346011209146,
+   "overlap": false
+  },
+  {
+   "base": "map/repeated_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 7679828,
+   "ours": 9392247,
+   "ours12": 9330578,
+   "ratio": 1.2229762176965422,
+   "version": 1.0066093440299198,
+   "overlap": false
+  },
+  {
+   "base": "map/repeated_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 76696341,
+   "ours": 93718205,
+   "ours12": 92689276,
+   "ratio": 1.221938410334334,
+   "version": 1.0111008419140095,
+   "overlap": false
+  },
+  {
+   "base": "map/save/decreasing_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 14016,
+   "ours": 14722,
+   "ours12": 13305,
+   "ratio": 1.05037100456621,
+   "version": 1.1065013152950018,
+   "overlap": true
+  },
+  {
+   "base": "map/save/decreasing_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 119577,
+   "ours": 123880,
+   "ours12": 124039,
+   "ratio": 1.0359851810966991,
+   "version": 0.9987181450995252,
+   "overlap": true
+  },
+  {
+   "base": "map/save/decreasing_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 844176,
+   "ours": 1014703,
+   "ours12": 970571,
+   "ratio": 1.202004084456322,
+   "version": 1.0454701407728029,
+   "overlap": false
+  },
+  {
+   "base": "map/save/increasing_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 13626,
+   "ours": 13310,
+   "ours12": 13225,
+   "ratio": 0.9768090415382358,
+   "version": 1.0064272211720227,
+   "overlap": true
+  },
+  {
+   "base": "map/save/increasing_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 123639,
+   "ours": 125022,
+   "ours12": 123714,
+   "ratio": 1.0111857908912236,
+   "version": 1.0105727726853873,
+   "overlap": true
+  },
+  {
+   "base": "map/save/increasing_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 850778,
+   "ours": 1003728,
+   "ours12": 985530,
+   "ratio": 1.1797766279805073,
+   "version": 1.0184651913183769,
+   "overlap": false
+  },
+  {
+   "base": "map/save/repeated_put/100",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 2339,
+   "ours": 2299,
+   "ours12": 2344,
+   "ratio": 0.9828986746472852,
+   "version": 0.98080204778157,
+   "overlap": true
+  },
+  {
+   "base": "map/save/repeated_put/1000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 40471,
+   "ours": 42074,
+   "ours12": 41578,
+   "ratio": 1.0396086086333425,
+   "version": 1.0119293857328395,
+   "overlap": true
+  },
+  {
+   "base": "map/save/repeated_put/10000",
+   "group": "map",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 223658,
+   "ours": 319836,
+   "ours12": 322049,
+   "ratio": 1.430022623827451,
+   "version": 0.9931283748746309,
+   "overlap": false
+  },
+  {
+   "base": "marks/add_mark",
+   "group": "marks",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 39910,
+   "ours": 46518,
+   "ours12": 47850,
+   "ratio": 1.1655725382109747,
+   "version": 0.9721630094043887,
+   "overlap": true
+  },
+  {
+   "base": "marks/get_marks_at_end",
+   "group": "marks",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 1843,
+   "ours": 2690,
+   "ours12": 17122600,
+   "ratio": 1.4595767769940315,
+   "version": 0.00015710230922873862,
+   "overlap": false
+  },
+  {
+   "base": "marks/splice_with_marks",
+   "group": "marks",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 405279829,
+   "ours": 430933293,
+   "ours12": 424605077,
+   "ratio": 1.0632981514606787,
+   "version": 1.0149037690380702,
+   "overlap": false
+  },
+  {
+   "base": "marks/splice_without_marks",
+   "group": "marks",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 27962921,
+   "ours": 35416297,
+   "ours12": 34252497,
+   "ratio": 1.2665449721794086,
+   "version": 1.033977084940698,
+   "overlap": false
+  },
+  {
+   "base": "memory/clone/egwalker_paper/A1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 2858635,
+   "ours": 2858635,
+   "ours12": 2866603,
+   "ratio": 1.0,
+   "version": 0.9972204033833775,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/A1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 2858635,
+   "ours": 2858635,
+   "ours12": 2866603,
+   "ratio": 1.0,
+   "version": 0.9972204033833775,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/A2",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 5458261,
+   "ours": 5477809,
+   "ours12": 5510033,
+   "ratio": 1.0035813604369597,
+   "version": 0.9941517591636928,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/A2",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 5458261,
+   "ours": 5477809,
+   "ours12": 5510033,
+   "ratio": 1.0035813604369597,
+   "version": 0.9941517591636928,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/C1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 15430117,
+   "ours": 15430117,
+   "ours12": 16127229,
+   "ratio": 1.0,
+   "version": 0.9567742232717102,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/C1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 15430117,
+   "ours": 15430117,
+   "ours12": 16127229,
+   "ratio": 1.0,
+   "version": 0.9567742232717102,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/C2",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 24491969,
+   "ours": 24491969,
+   "ours12": 25380121,
+   "ratio": 1.0,
+   "version": 0.9650059981983538,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/C2",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 24491969,
+   "ours": 24491969,
+   "ours12": 25380121,
+   "ratio": 1.0,
+   "version": 0.9650059981983538,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/S1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 1360376,
+   "ours": 1360376,
+   "ours12": 1360376,
+   "ratio": 1.0,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/S1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 1360376,
+   "ours": 1360376,
+   "ours12": 1360376,
+   "ratio": 1.0,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/S3",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 2718908,
+   "ours": 2718908,
+   "ours12": 2718908,
+   "ratio": 1.0,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/clone/egwalker_paper/S3",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 2718908,
+   "ours": 2718908,
+   "ours12": 2718908,
+   "ratio": 1.0,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/big-paste",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 9264631,
+   "ours": 9264613,
+   "ours12": 9264613,
+   "ratio": 0.9999980571271538,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/big-paste",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 112198,
+   "ours": 112198,
+   "ours12": 112198,
+   "ratio": 1.0,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/A1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 95725159,
+   "ours": 95754033,
+   "ours12": 95754033,
+   "ratio": 1.0003016343905995,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/A1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 3162088,
+   "ours": 3162088,
+   "ours12": 3169772,
+   "ratio": 1.0,
+   "version": 0.9975758508813883,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/A2",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 60517166,
+   "ours": 60529692,
+   "ours12": 60529692,
+   "ratio": 1.0002069825939965,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/A2",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 5708724,
+   "ours": 5728308,
+   "ours12": 5760068,
+   "ratio": 1.0034305389435538,
+   "version": 0.9944861762048642,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/C1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 189702210,
+   "ours": 189702210,
+   "ours12": 189702210,
+   "ratio": 1.0,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/C1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 18781274,
+   "ours": 18781274,
+   "ours12": 19135362,
+   "ratio": 1.0,
+   "version": 0.9814956205166121,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/C2",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 218172347,
+   "ours": 218172347,
+   "ours12": 218172347,
+   "ratio": 1.0,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/C2",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 31884302,
+   "ours": 31884302,
+   "ours12": 31787458,
+   "ratio": 1.0,
+   "version": 1.003046610395836,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/S1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 246098612,
+   "ours": 246101756,
+   "ours12": 246101756,
+   "ratio": 1.0000127753666486,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/S1",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 1445045,
+   "ours": 1445045,
+   "ours12": 1445045,
+   "ratio": 1.0,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/S3",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 713167113,
+   "ours": 713170881,
+   "ours12": 713170881,
+   "ratio": 1.0000052834741413,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/egwalker_paper/S3",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 2860597,
+   "ours": 2860597,
+   "ours12": 2860597,
+   "ratio": 1.0,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/text-splice-100",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 33314384,
+   "ours": 33415240,
+   "ours12": 33415240,
+   "ratio": 1.00302740101693,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/text-splice-100",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 152558,
+   "ours": 152598,
+   "ours12": 152598,
+   "ratio": 1.000262195361764,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/typing",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "peak",
+   "unit": "bytes",
+   "theirs": 97108632,
+   "ours": 97108624,
+   "ours12": 97108624,
+   "ratio": 0.9999999176180342,
+   "version": 1.0,
+   "overlap": null
+  },
+  {
+   "base": "memory/load/typing",
+   "group": "memory",
+   "kind": "memory",
+   "metric": "steady",
+   "unit": "bytes",
+   "theirs": 13843622,
+   "ours": 13829638,
+   "ours12": 14717150,
+   "ratio": 0.998989859734685,
+   "version": 0.9396953893926474,
+   "overlap": null
+  },
+  {
+   "base": "range/range/10000",
+   "group": "range",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 2212500,
+   "ours": 2371171,
+   "ours12": 2376397,
+   "ratio": 1.0717157062146894,
+   "version": 0.9978008724973142,
+   "overlap": false
+  },
+  {
+   "base": "range/range/100000",
+   "group": "range",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 22012122,
+   "ours": 23886182,
+   "ours12": 24641532,
+   "ratio": 1.085137634617871,
+   "version": 0.9693464675816422,
+   "overlap": false
+  },
+  {
+   "base": "sync/every_change/100",
+   "group": "sync",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 5284356,
+   "ours": 6917701,
+   "ours12": 6186774,
+   "ratio": 1.3090906441579637,
+   "version": 1.1181434783297401,
+   "overlap": false
+  },
+  {
+   "base": "sync/every_change/1000",
+   "group": "sync",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 194544252,
+   "ours": 218960182,
+   "ours12": 175542258,
+   "ratio": 1.1255032196993413,
+   "version": 1.247336023215561,
+   "overlap": false
+  },
+  {
+   "base": "sync/every_change/10000",
+   "group": "sync",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 15919832992,
+   "ours": 16675676835,
+   "ours12": 12679831524,
+   "ratio": 1.047478126396164,
+   "version": 1.3151339434941849,
+   "overlap": false
+  },
+  {
+   "base": "sync/full_many_tx",
+   "group": "sync",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 22489191,
+   "ours": 26587939,
+   "ours12": 25957328,
+   "ratio": 1.182254132663109,
+   "version": 1.0242941415233493,
+   "overlap": false
+  },
+  {
+   "base": "sync/full_one_tx",
+   "group": "sync",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 6538294,
+   "ours": 7417979,
+   "ours12": 7128973,
+   "ratio": 1.1345435063030203,
+   "version": 1.0405396401417146,
+   "overlap": false
+  },
+  {
+   "base": "sync/full_one_tx/100",
+   "group": "sync",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 100666,
+   "ours": 122076,
+   "ours12": 115629,
+   "ratio": 1.2126835277054815,
+   "version": 1.0557559089847703,
+   "overlap": false
+  },
+  {
+   "base": "sync/full_one_tx/1000",
+   "group": "sync",
+   "kind": "sampled",
+   "metric": "median",
+   "unit": "ns/iter",
+   "theirs": 734869,
+   "ours": 828485,
+   "ours12": 787866,
+   "ratio": 1.1273914126191198,
+   "version": 1.0515557214044013,
+   "overlap": false
+  },
+  {
+   "base": "sync/tiny_list",
+   "group": "sync",
+   "kind": "series",
+   "metric": "total",
+   "unit": "ns/step",
+   "theirs": 29669737228,
+   "ours": 30864415594,
+   "ours12": 21348882555,
+   "ratio": 1.0402658896780708,
+   "version": 1.4457157424743723,
+   "overlap": null
+  },
+  {
+   "base": "sync/tiny_list",
+   "group": "sync",
+   "kind": "series",
+   "metric": "step median",
+   "unit": "ns/step",
+   "theirs": 29605922,
+   "ours": 30783559,
+   "ours12": 21398745,
+   "ratio": 1.0397770756810074,
+   "version": 1.4385684300644734,
+   "overlap": null
+  },
+  {
+   "base": "sync/tiny_text",
+   "group": "sync",
+   "kind": "series",
+   "metric": "total",
+   "unit": "ns/step",
+   "theirs": 42073779203,
+   "ours": 53437606372,
+   "ours12": 25705033541,
+   "ratio": 1.2700928555566913,
+   "version": 2.078877130689833,
+   "overlap": null
+  },
+  {
+   "base": "sync/tiny_text",
+   "group": "sync",
+   "kind": "series",
+   "metric": "step median",
+   "unit": "ns/step",
+   "theirs": 42155564,
+   "ours": 53312613,
+   "ours12": 25659680,
+   "ratio": 1.264663734542847,
+   "version": 2.077680352989593,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_100_bulk_incremental_load",
+   "group": "typing",
+   "kind": "series",
+   "metric": "total",
+   "unit": "ns/step",
+   "theirs": 3818531247,
+   "ours": 4125956782,
+   "ours12": 3194283284,
+   "ratio": 1.0805088436140273,
+   "version": 1.2916690271857554,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_100_bulk_incremental_load",
+   "group": "typing",
+   "kind": "series",
+   "metric": "step median",
+   "unit": "ns/step",
+   "theirs": 37429621,
+   "ours": 41327492,
+   "ours12": 31950459,
+   "ratio": 1.1041386713480215,
+   "version": 1.2934866444328703,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_100_incremental_loads",
+   "group": "typing",
+   "kind": "series",
+   "metric": "total",
+   "unit": "ns/step",
+   "theirs": 349874471521,
+   "ours": 384792234089,
+   "ours12": 293602856993,
+   "ratio": 1.0998008297553203,
+   "version": 1.3105874991474422,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_100_incremental_loads",
+   "group": "typing",
+   "kind": "series",
+   "metric": "step median",
+   "unit": "ns/step",
+   "theirs": 3544875081,
+   "ours": 3835358297,
+   "ours12": 2938253879,
+   "ratio": 1.081944556398319,
+   "version": 1.305318891744412,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_apply_change",
+   "group": "typing",
+   "kind": "series",
+   "metric": "total",
+   "unit": "ns/step",
+   "theirs": 33607343534,
+   "ours": 36723406453,
+   "ours12": 28740117134,
+   "ratio": 1.092719703235322,
+   "version": 1.2777751141993658,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_apply_change",
+   "group": "typing",
+   "kind": "series",
+   "metric": "step median",
+   "unit": "ns/step",
+   "theirs": 33585918,
+   "ours": 36720566,
+   "ours12": 28757753,
+   "ratio": 1.093332211434566,
+   "version": 1.2768927391510734,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_merge",
+   "group": "typing",
+   "kind": "series",
+   "metric": "total",
+   "unit": "ns/step",
+   "theirs": 34148295804,
+   "ours": 37151069281,
+   "ours12": 28118406295,
+   "ratio": 1.0879333333128813,
+   "version": 1.321236662250171,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_merge",
+   "group": "typing",
+   "kind": "series",
+   "metric": "step median",
+   "unit": "ns/step",
+   "theirs": 34129645,
+   "ours": 37177186,
+   "ours12": 28114034,
+   "ratio": 1.0892930764442466,
+   "version": 1.322371097651799,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_sync",
+   "group": "typing",
+   "kind": "series",
+   "metric": "total",
+   "unit": "ns/step",
+   "theirs": 33212998863,
+   "ours": 37312086192,
+   "ours12": 28238224404,
+   "ratio": 1.1234181636505722,
+   "version": 1.3213325901154986,
+   "overlap": null
+  },
+  {
+   "base": "typing/single_char_sync",
+   "group": "typing",
+   "kind": "series",
+   "metric": "step median",
+   "unit": "ns/step",
+   "theirs": 32900675,
+   "ours": 37243800,
+   "ours12": 28177988,
+   "ratio": 1.1320071700656598,
+   "version": 1.3217338299668522,
+   "overlap": null
+  }
+ ],
+ "theirs_only": [
+  {
+   "base": "bestiary/fork/godot-modeled",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     4188780,
+     4171101,
+     4217660
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "bestiary/fork/godot-thread",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     135248571,
+     134914353,
+     136048173
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "bestiary/iter/godot-modeled",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     10088159,
+     10054290,
+     10155502
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "bestiary/iter/godot-thread",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     305458829,
+     302066881,
+     309671524
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "bestiary/load/godot-modeled",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     73623857,
+     73347328,
+     73945132
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "bestiary/load/godot-thread",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     4067058594,
+     4056056926,
+     4089035185
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "bestiary/reload/godot-modeled",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     73617224,
+     73381943,
+     74344660
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "bestiary/reload/godot-thread",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     4043727735,
+     4009154565,
+     4060554574
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "bestiary/save/godot-modeled",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     4062435,
+     4031396,
+     4087713
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "bestiary/save/godot-thread",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     135819939,
+     135054967,
+     137231175
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "diff/diff",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     97808471,
+     87345529,
+     120983473
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "egwalker_paper/apply_fragment_to_clone/A1",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     75262,
+     74260,
+     85613
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "egwalker_paper/apply_fragment_to_clone/A2",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     375807,
+     373048,
+     495249
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "egwalker_paper/apply_fragment_to_clone/C1",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     998533,
+     991861,
+     1026166
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "egwalker_paper/apply_fragment_to_clone/C2",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     2446274,
+     2406434,
+     2488188
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "egwalker_paper/apply_fragment_to_clone/S1",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     4990,
+     4709,
+     5490
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "egwalker_paper/apply_fragment_to_clone/S3",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     5135,
+     4869,
+     5580
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "length/map_len_at",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     5971790,
+     5939894,
+     6021118
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "length/text_len_at",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     8487876,
+     8312013,
+     8622151
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "list/list_cursor_at",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     24242908,
+     11766844,
+     46444475
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "list/list_splice_index_at",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     9319317,
+     2314489,
+     15222648
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "list/list_update_at",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     12395145,
+     3266825,
+     20281741
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "load_save/load_actors/load_masked_half/10",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     31374,
+     31139,
+     36029
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "load_save/load_actors/load_masked_half/100",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     369115,
+     363500,
+     373769
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "load_save/load_actors/load_masked_half/1000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     18815761,
+     18722654,
+     19118535
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/apply/repeated_increment/100",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     62698,
+     61748,
+     67337
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/apply/repeated_increment/1000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     498395,
+     489368,
+     505889
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/apply/repeated_increment/10000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     4856494,
+     4793901,
+     4904791
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/load/repeated_increment/100",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     80517,
+     79711,
+     87025
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/load/repeated_increment/1000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     641937,
+     635916,
+     658488
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/load/repeated_increment/10000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     6204070,
+     6154851,
+     6230615
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/repeated_increment/100",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     824469,
+     817079,
+     843450
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/repeated_increment/1000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     16572472,
+     16248031,
+     17054972
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/repeated_increment/10000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     988232718,
+     961317235,
+     1006985358
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/save/repeated_increment/100",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     2570,
+     2464,
+     3005
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/save/repeated_increment/1000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     10294,
+     9889,
+     11752
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "map/save/repeated_increment/10000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     17197,
+     17062,
+     19056
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "memory/load/essay",
+   "kind": "memory",
+   "metrics": [
+    [
+     "peak",
+     323344955,
+     null,
+     null
+    ],
+    [
+     "steady",
+     82009383,
+     null,
+     null
+    ]
+   ],
+   "unit": "bytes",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "memory/load/moby-dick",
+   "kind": "memory",
+   "metrics": [
+    [
+     "peak",
+     114829725,
+     null,
+     null
+    ],
+    [
+     "steady",
+     1338650,
+     null,
+     null
+    ]
+   ],
+   "unit": "bytes",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "memory/load/monday-meeting-notes",
+   "kind": "memory",
+   "metrics": [
+    [
+     "peak",
+     21188904,
+     null,
+     null
+    ],
+    [
+     "steady",
+     4790239,
+     null,
+     null
+    ]
+   ],
+   "unit": "bytes",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "memory/load/pathological",
+   "kind": "memory",
+   "metrics": [
+    [
+     "peak",
+     2823926614,
+     null,
+     null
+    ],
+    [
+     "steady",
+     1136415822,
+     null,
+     null
+    ]
+   ],
+   "unit": "bytes",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "memory/load/stephen",
+   "kind": "memory",
+   "metrics": [
+    [
+     "peak",
+     8097961,
+     null,
+     null
+    ],
+    [
+     "steady",
+     1507044,
+     null,
+     null
+    ]
+   ],
+   "unit": "bytes",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "memory/load/unsinkable",
+   "kind": "memory",
+   "metrics": [
+    [
+     "peak",
+     3441566858,
+     null,
+     null
+    ],
+    [
+     "steady",
+     251004228,
+     null,
+     null
+    ]
+   ],
+   "unit": "bytes",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "memory/load/webstraits",
+   "kind": "memory",
+   "metrics": [
+    [
+     "peak",
+     88166892,
+     null,
+     null
+    ],
+    [
+     "steady",
+     1786408,
+     null,
+     null
+    ]
+   ],
+   "unit": "bytes",
+   "ours_reason": "not ported yet: needs real-world fixtures for every library (docs/tickets/3-fixtures.md)"
+  },
+  {
+   "base": "range/range_at/10000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     2284457,
+     2278350,
+     2309429
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "range/range_at/100000",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     22954174,
+     22869709,
+     23239610
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  },
+  {
+   "base": "sync/big_chunky_sync_message",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     84563479,
+     84355861,
+     85339777
+    ]
+   ],
+   "unit": "ns/iter",
+   "ours_reason": "not ported yet: needs an Automerge-only feature (docs/tickets/2-automerge-only.md)"
+  }
+ ],
+ "ours_only": [
+  {
+   "base": "egwalker_paper/clone/S2",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     299046,
+     296833,
+     316771
+    ]
+   ],
+   "unit": "ns/iter"
+  },
+  {
+   "base": "egwalker_paper/get_text/S2",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     4522514,
+     4503699,
+     4616633
+    ]
+   ],
+   "unit": "ns/iter"
+  },
+  {
+   "base": "egwalker_paper/load/S2",
+   "kind": "sampled",
+   "metrics": [
+    [
+     "median",
+     627090824,
+     625575606,
+     662315584
+    ]
+   ],
+   "unit": "ns/iter"
+  },
+  {
+   "base": "memory/clone/egwalker_paper/S2",
+   "kind": "memory",
+   "metrics": [
+    [
+     "peak",
+     1913750,
+     null,
+     null
+    ],
+    [
+     "steady",
+     1913750,
+     null,
+     null
+    ]
+   ],
+   "unit": "bytes"
+  },
+  {
+   "base": "memory/load/egwalker_paper/S2",
+   "kind": "memory",
+   "metrics": [
+    [
+     "peak",
+     332881028,
+     null,
+     null
+    ],
+    [
+     "steady",
+     2112788,
+     null,
+     null
+    ]
+   ],
+   "unit": "bytes"
+  }
+ ]
+}
