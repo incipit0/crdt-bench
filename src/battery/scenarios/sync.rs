@@ -4,9 +4,9 @@
 //! outside the timer (the original clones it inside `full_many_tx`), and
 //! random positions come from a seeded RNG.
 
-use crate::api::{Crdt, Txn, Value};
+use crate::api::{Crdt, Feature, Txn, Value};
 use crate::battery::generators::{CONTENT, index, list_splice_100, rng_with, text_splice_100};
-use crate::battery::registry::{Benchmark, rebuilt, sampled, series};
+use crate::battery::registry::{Benchmark, gate, rebuilt, sampled, series};
 
 const FULL_SYNC_SIZE: u64 = 10_000;
 const TINY_SYNC_INITIAL_SIZE: u64 = 100_000;
@@ -64,6 +64,16 @@ fn full_sync<D: Crdt>(base: &'static str, n: u64, one_tx: bool) -> Benchmark {
 }
 
 pub fn register<D: Crdt>(out: &mut Vec<Benchmark>) {
+    let mut benchmarks = Vec::new();
+    register_all::<D>(&mut benchmarks);
+    out.extend(
+        benchmarks
+            .into_iter()
+            .map(|b| gate::<D>(&[Feature::SyncProtocol], b)),
+    );
+}
+
+fn register_all<D: Crdt>(out: &mut Vec<Benchmark>) {
     out.push(full_sync::<D>("sync/full_many_tx", FULL_SYNC_SIZE, false));
     out.push(full_sync::<D>("sync/full_one_tx/100", 100, true));
     out.push(full_sync::<D>("sync/full_one_tx/1000", 1_000, true));

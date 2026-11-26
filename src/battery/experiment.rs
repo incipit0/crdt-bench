@@ -133,8 +133,10 @@ fn enabled_features() -> Vec<&'static str> {
 fn crate_versions(names: &[&str]) -> Value {
     let lock = std::fs::read_to_string(Path::new(env!("CARGO_MANIFEST_DIR")).join("Cargo.lock"))
         .unwrap_or_default();
+    // A crate can appear more than once (automerge from crates.io and from the
+    // hashless git branch), so non-registry sources are keyed with their source.
     let mut versions = serde_json::Map::new();
-    let mut lines = lock.lines();
+    let mut lines = lock.lines().peekable();
     while let Some(line) = lines.next() {
         if let Some(name) = line.strip_prefix("name = \"").and_then(|s| s.strip_suffix('"'))
             && names.contains(&name)
@@ -143,7 +145,16 @@ fn crate_versions(names: &[&str]) -> Value {
                 .and_then(|l| l.strip_prefix("version = \""))
                 .and_then(|s| s.strip_suffix('"'))
         {
-            versions.insert(name.to_string(), json!(version));
+            let source = lines
+                .peek()
+                .and_then(|l| l.strip_prefix("source = \""))
+                .and_then(|s| s.strip_suffix('"'))
+                .filter(|s| !s.starts_with("registry+"));
+            let key = match source {
+                Some(source) => format!("{name} ({})", source.trim_start_matches("git+")),
+                None => name.to_string(),
+            };
+            versions.insert(key, json!(version));
         }
     }
     Value::Object(versions)

@@ -1,7 +1,7 @@
 //! Command-line entry point for the cross-library benchmark battery.
 
 use clap::{Parser, Subcommand, ValueEnum};
-use crdt_bench::adapters::{AmDoc, YrsDoc};
+use crdt_bench::adapters::{AmDoc, AmHashlessDoc, YrsDoc};
 use crdt_bench::api::Crdt;
 use crdt_bench::battery::{
     EGWALKER_TRACES, check_fixtures, compare, data_dir, experiment, fixture_text, generate_fixture, registry,
@@ -126,6 +126,8 @@ enum Command {
 #[derive(Clone, Copy, Debug, PartialEq, ValueEnum)]
 enum Library {
     Automerge,
+    /// Automerge hashless: the upstream `hashless` branch's hash-light documents.
+    AutomergeHashless,
     Yrs,
 }
 
@@ -133,6 +135,7 @@ impl Library {
     fn name(self) -> &'static str {
         match self {
             Self::Automerge => AmDoc::NAME,
+            Self::AutomergeHashless => AmHashlessDoc::NAME,
             Self::Yrs => YrsDoc::NAME,
         }
     }
@@ -308,7 +311,7 @@ fn main() -> anyhow::Result<()> {
                 labels
             };
             let libraries = if libraries.is_empty() {
-                vec![Library::Automerge, Library::Yrs]
+                vec![Library::Automerge, Library::AutomergeHashless, Library::Yrs]
             } else {
                 libraries
             };
@@ -316,6 +319,7 @@ fn main() -> anyhow::Result<()> {
                 for &library in libraries.iter().filter(|_| !check_only) {
                     match library {
                         Library::Automerge => generate_fixture::<AmDoc>(label)?,
+                        Library::AutomergeHashless => generate_fixture::<AmHashlessDoc>(label)?,
                         Library::Yrs => generate_fixture::<YrsDoc>(label)?,
                     };
                 }
@@ -324,6 +328,9 @@ fn main() -> anyhow::Result<()> {
                 let mut texts = Vec::new();
                 if let Some(text) = fixture_text::<AmDoc>(label)? {
                     texts.push((AmDoc::NAME, text));
+                }
+                if let Some(text) = fixture_text::<AmHashlessDoc>(label)? {
+                    texts.push((AmHashlessDoc::NAME, text));
                 }
                 if let Some(text) = fixture_text::<YrsDoc>(label)? {
                     texts.push((YrsDoc::NAME, text));

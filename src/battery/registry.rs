@@ -376,6 +376,19 @@ pub fn requires<D: Crdt>(
     }
 }
 
+/// [`requires`] for a benchmark already built: keep it if `D` has every
+/// feature in `features`, otherwise report it as unsupported under the same id.
+/// Building is cheap (setup runs only when the benchmark does), so scenarios
+/// can build first and gate after.
+pub fn gate<D: Crdt>(features: &[Feature], benchmark: Benchmark) -> Benchmark {
+    let (kind, group, base) = (
+        benchmark.kind(),
+        benchmark.group(),
+        benchmark.id().base.clone(),
+    );
+    requires::<D>(features, kind, group, base, |_| benchmark)
+}
+
 pub fn unrunnable<D: Crdt>(
     kind: BenchmarkKind,
     group: &'static str,
@@ -395,6 +408,7 @@ pub fn unrunnable<D: Crdt>(
 pub fn benchmarks() -> Vec<Benchmark> {
     let mut benchmarks = Vec::new();
     super::scenarios::register::<crate::adapters::AmDoc>(&mut benchmarks);
+    super::scenarios::register::<crate::adapters::AmHashlessDoc>(&mut benchmarks);
     super::scenarios::register::<crate::adapters::YrsDoc>(&mut benchmarks);
     benchmarks
 }

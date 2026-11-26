@@ -172,7 +172,7 @@ dependencies = [
  "flate2",
  "getrandom 0.4.1",
  "hex",
- "hexane",
+ "hexane 1.0.0-alpha.5",
  "itertools 0.15.0",
  "leb128",
  "rand 0.10.4",
@@ -182,6 +182,28 @@ dependencies = [
  "smol_str",
  "thiserror",
  "tinyvec",
+ "tracing",
+ "unicode-segmentation",
+]
+
+[[package]]
+name = "automerge"
+version = "0.12.0"
+source = "git+https://github.com/automerge/automerge?rev=61271d3eb1f945461ee4de36f012b97da5568cbd#61271d3eb1f945461ee4de36f012b97da5568cbd"
+dependencies = [
+ "cfg-if",
+ "flate2",
+ "getrandom 0.4.1",
+ "hex",
+ "hexane 1.0.0-alpha.6",
+ "itertools 0.15.0",
+ "leb128",
+ "rand 0.10.4",
+ "rustc-hash 2.1.1",
+ "serde",
+ "sha2",
+ "smol_str",
+ "thiserror",
  "tracing",
  "unicode-segmentation",
 ]
@@ -418,7 +440,8 @@ name = "crdt-bench"
 version = "0.1.0"
 dependencies = [
  "anyhow",
- "automerge",
+ "automerge 0.12.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "automerge 0.12.0 (git+https://github.com/automerge/automerge?rev=61271d3eb1f945461ee4de36f012b97da5568cbd)",
  "clap",
  "criterion",
  "dhat",
@@ -790,6 +813,15 @@ name = "hexane"
 version = "1.0.0-alpha.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "81df830f11babb0eee9a082e09135ef0a7d8791f3fe9b279bb9485bf7eaf23e0"
+dependencies = [
+ "leb128",
+ "thiserror",
+]
+
+[[package]]
+name = "hexane"
+version = "1.0.0-alpha.6"
+source = "git+https://github.com/automerge/automerge?rev=61271d3eb1f945461ee4de36f012b97da5568cbd#61271d3eb1f945461ee4de36f012b97da5568cbd"
 dependencies = [
  "leb128",
  "thiserror",

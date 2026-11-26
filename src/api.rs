@@ -39,6 +39,9 @@ pub enum Feature {
     Marks,
     /// Stable positions in a sequence that survive concurrent edits.
     Cursors,
+    /// A sync protocol that brings two peers up to date from any starting
+    /// state (`Crdt::sync`).
+    SyncProtocol,
 }
 
 impl Feature {
@@ -46,6 +49,7 @@ impl Feature {
         match self {
             Self::Marks => "marks",
             Self::Cursors => "cursors",
+            Self::SyncProtocol => "sync protocol that works out what a peer is missing",
         }
     }
 }

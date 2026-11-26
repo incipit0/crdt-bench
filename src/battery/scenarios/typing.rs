@@ -1,8 +1,8 @@
 //! Single-character edits sent to a remote copy in different ways.
 
-use crate::api::{Crdt, Txn};
+use crate::api::{Crdt, Feature, Txn};
 use crate::battery::generators::{CONTENT, index, random_insert_text_doc, rng_with};
-use crate::battery::registry::{Benchmark, series};
+use crate::battery::registry::{Benchmark, gate, series};
 use rand::rngs::StdRng;
 
 const INITIAL_CHARS: u64 = 100_000;
@@ -25,7 +25,7 @@ fn pos(rng: &mut StdRng) -> usize {
 }
 
 pub fn register<D: Crdt>(out: &mut Vec<Benchmark>) {
-    out.push(series::<D>("typing", "typing/single_char_sync", STEPS, || {
+    out.push(gate::<D>(&[Feature::SyncProtocol], series::<D>("typing", "typing/single_char_sync", STEPS, || {
         let (mut doc, mut remote, text, mut rng) = setup::<D>(2);
         let mut state = D::SyncState::default();
         let mut remote_state = D::SyncState::default();
@@ -35,7 +35,7 @@ pub fn register<D: Crdt>(out: &mut Vec<Benchmark>) {
             doc.sync(&mut state, &mut remote, &mut remote_state);
             assert!(doc.same_version(&mut remote));
         })
-    }));
+    })));
 
     out.push(series::<D>(
         "typing",

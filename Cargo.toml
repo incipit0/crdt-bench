@@ -7,6 +7,11 @@ default-run = "crdt-bench"
 [dependencies]
 anyhow = "1.0.104"
 automerge = "0.12.0" # { path = "../automerge/rust/automerge" } # change to 0.6.0 for automerge 2 and 0.12.0 for 3
+# The upstream `hashless` branch, imported under another name so it can sit
+# beside the release above. The battery runs its hash-light documents
+# (`next::AutoCommit` on the branch) as "automerge-hashless".
+# Bump with: cargo update -p automerge_hashless (or change `rev`).
+automerge_hashless = { package = "automerge", git = "https://github.com/automerge/automerge", rev = "61271d3eb1f945461ee4de36f012b97da5568cbd" }
 clap = { version = "4.6.8", features = ["derive"] }
 criterion = "0.8.1"
 dhat = "0.3.3"

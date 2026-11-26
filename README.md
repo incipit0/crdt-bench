@@ -69,6 +69,18 @@ library (adapters in `src/adapters/`). A benchmark's name is
 [`docs/battery-benchmarks.md`](docs/battery-benchmarks.md) describes what every
 benchmark measures.
 
+Libraries (`--library`, default all three):
+
+- `automerge`: Automerge 0.12.0 from crates.io, `AutoCommit`.
+- `automerge-hashless`: Automerge hashless, from Automerge's upstream
+  [`hashless`](https://github.com/automerge/automerge/tree/hashless) branch,
+  pulled in as the `automerge_hashless` git dependency (pinned by `rev` in
+  `Cargo.toml`; the branch calls the document type `next::AutoCommit`). It
+  keeps only the change hashes it needs, names history by `ChangeId`, and saves
+  in the bundle format. It has no sync protocol, so the sync benchmarks are
+  reported as unsupported for it.
+- `yrs`: Yrs 0.28.1.
+
 One-time setup: copy the traces from an Automerge checkout, then build each
 library's documents for the Eg-walker paper traces:
 
@@ -83,7 +95,7 @@ reported as not runnable, with the command that fixes it.
 
 ```sh
 cargo run --release --bin battery -- list                     # everything, with reasons for n/a
-cargo run --release --bin battery -- run --label nightly      # new experiment: fast tier, both libraries
+cargo run --release --bin battery -- run --label nightly      # new experiment: fast tier, all libraries
 cargo run --release --bin battery -- run --tier all --filter typing --library yrs
 cargo run --release --features memory --bin battery -- run --filter memory --tier all --append
 .venv/bin/python scripts/bench.py battery                     # charts for the latest experiment, added to its report

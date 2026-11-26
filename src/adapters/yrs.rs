@@ -136,7 +136,7 @@ impl Crdt for YrsDoc {
 
     fn supports(feature: Feature) -> bool {
         match feature {
-            Feature::Marks | Feature::Cursors => true,
+            Feature::Marks | Feature::Cursors | Feature::SyncProtocol => true,
         }
     }
 

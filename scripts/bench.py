@@ -51,9 +51,10 @@ X_LABELS = {
 }
 
 # Categorical palette (light mode), fixed order. Colour follows the library,
-# never its rank: Automerge is always slot 1, Yjs/Yrs always slot 2.
+# never its rank: Automerge is always slot 1, Yjs/Yrs always slot 2,
+# Automerge hashless (hashless branch) always slot 3.
 PALETTE = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6", "#e34948"]
-PREFERRED_SLOT = {"Automerge": 0, "Yjs": 1, "Yrs": 1}
+PREFERRED_SLOT = {"Automerge": 0, "Yjs": 1, "Yrs": 1, "Automerge hashless": 2}
 
 # Secondary encoding for the run when comparing runs, so identity is not colour-only.
 LINESTYLES = ["-", "--", ":", "-."]
@@ -554,7 +555,7 @@ def cmd_plot(args: argparse.Namespace) -> None:
 # --------------------------------------------------------------------------- battery
 
 # Library names as written by the battery -> display names used in charts.
-BATTERY_LIBS = {"automerge": "Automerge", "yrs": "Yrs"}
+BATTERY_LIBS = {"automerge": "Automerge", "automerge-hashless": "Automerge hashless", "yrs": "Yrs"}
 
 
 def load_battery(path: Path, label: str) -> list[dict]:
